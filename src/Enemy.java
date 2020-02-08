@@ -4,47 +4,52 @@
 public class Enemy {
     //модификаторы доступа private, protected , default ,public
     private String name;
-    private int armor;  // броня
+    private int defense;  // броня
     private int hp;
     private int strong;
     private int attack;
     private Weapon weapon;
-    private DropHP dropHP;
-    private DropArmor dropArmor;
+    private Accessories accessories;
+    private Armor armor;
     private DropStrong dropStrong;
 
-    public Enemy(String name, int armor, int hp, int strong) {
+    public Enemy(String name, int defense, int hp, int strong) {
         this.name = name;
-        this.armor = armor;
+        this.defense = defense;
         this.hp = hp;
         this.strong = strong;
         this.attack = 5;
 
     }
 
-    public int getFullDamage(){
-        if (weapon == null){
+    public int getFullDamage() {
+        if (weapon == null) {
             return attack;
         }
         return attack + weapon.getDamage();
     }
 
-    public int getFullHP(){
-        if (dropHP == null){
+    public int getFullHP() {
+        if (accessories == null) {
             return hp;
         }
-        return hp + dropHP.getBonusHP();
+        return hp + accessories.getBonusHP();
     }
 
-    public int getFullArmor(){
-        if (dropArmor == null){
-            return armor;
+    public int getFullArmor() {
+        if (armor == null || armor.getEffect() == null) {
+            return defense;
         }
-        return armor + dropArmor.getBonusArmor();
+        for (Effect effect : armor.getEffect()) {
+            if (EffectType.DEFFENCE.equals(effect.getType())) {
+                return defense + effect.getValue();
+            }
+        }
+        return defense;
     }
 
-    public int getFullStrong(){
-        if (dropStrong == null){
+    public int getFullStrong() {
+        if (dropStrong == null) {
             return strong;
         }
         return strong + dropStrong.getBonusStrong();
@@ -61,7 +66,8 @@ public class Enemy {
                 ", \n attack: " + getFullDamage() +
                 ", \n weapon: " + weapon;
     }
-//    public int fight(Weapon anotherWeapon) {
+
+    //    public int fight(Weapon anotherWeapon) {
 //        if (this.strong >= anotherWeapon.getStrength()) {
 //            this.attack = this.strong + anotherWeapon.getDamage();
 //        } else this.attack = this.strong;
@@ -79,12 +85,12 @@ public class Enemy {
         this.name = name;
     }
 
-    public int getArmor() {
-        return armor;
+    public int getDefense() {
+        return defense;
     }
 
-    public void setArmor(int armor) {
-        this.armor = armor;
+    public void setDefenseint(int defense) {
+        this.defense = defense;
     }
 
     public int getHp() {
@@ -115,20 +121,20 @@ public class Enemy {
         this.weapon = weapon;
     }
 
-    public DropHP getDropHP() {
-        return dropHP;
+    public Accessories getAccessories() {
+        return accessories;
     }
 
-    public void setDropHP(DropHP dropHP) {
-        this.dropHP = dropHP;
+    public void setAccessories(Accessories accessories) {
+        this.accessories = accessories;
     }
 
-    public DropArmor getDropArmor() {
-        return dropArmor;
+    public Armor getArmor() {
+        return armor;
     }
 
-    public void setDropArmor(DropArmor dropArmor) {
-        this.dropArmor = dropArmor;
+    public void setArmor(Armor armor) {
+        this.armor = armor;
     }
 
     public DropStrong getDropStrong() {

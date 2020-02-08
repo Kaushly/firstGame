@@ -1,4 +1,4 @@
-public class DropHP {
+public class Accessories {
 //fn+shift+f6
     private String dropName;
     private int bonusHP;
@@ -6,7 +6,7 @@ public class DropHP {
 //    private int bonusStrong;
 //    private int bonusArmorr;
 
-    public DropHP(String dropName, double weight, int bonusHP){
+    public Accessories(String dropName, double weight, int bonusHP){
         this.dropName = dropName;
         this.weight = weight;
         this.bonusHP = bonusHP;
