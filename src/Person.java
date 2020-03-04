@@ -1,34 +1,4 @@
 public class Person {
-//    String priv = new priv();
-//    System.out.println("привет");
-
-//    private int hp;
-//    private int damage;
-//    private String name;
-//    private Weapon weapon;
-//    private int minStengh;
-//
-//    public Person(String name) {
-//        this.name = name;
-//        damage = 8;
-//        hp = 150;
-//        minStengh = 18;
-//    }
-//
-//    public Person(int hp, int damage, String name) {
-//        this.hp = hp;
-//        this.damage = damage;
-//        this.name = name;
-//    }
-//
-//    @Override
-//    public String toString() {
-//        return "Person " +
-//                "\n hp=" + hp +
-//                ",\n damage=" + damage +
-//                ",\n name='" + name + '\'' +
-//                ",\n weapon=" + weapon;
-//    }
 
     private String name;
     private int defense;  // броня
@@ -39,6 +9,7 @@ public class Person {
     private Accessories accessories;
     private Armor armor;
     private DropStrong dropStrong;
+    private boolean alive = true;
 
     public Person(String name) {
         this.name = name;
@@ -49,30 +20,12 @@ public class Person {
     }
 
 
-//    @Override
-//    public boolean equals(Object o) {
-//        if (this == o) return true;
-//        if (o == null || getClass() != o.getClass()) return false;
-//        Person person = (Person) o;
-//        return hp == person.hp &&
-//                damage == person.damage &&
-//                Objects.equals(name, person.name) &&
-//                Objects.equals(weapon, person.weapon);
-//    }
-
     public int getFullDamage() {
         if (weapon == null) {
             return attack;
         }
         return attack + weapon.getDamage();
     }
-
-//    public int getFullHP() {
-//        if (accessories == null) {
-//            return hp;
-//        }
-//        return hp + accessories.getBonusHP();
-//    }
 
     public int getFullArmor() {
         if (armor == null || armor.getEffect() == null) {
@@ -93,16 +46,20 @@ public class Person {
         return strong + dropStrong.getBonusStrong();
     }
 
-
     @Override
     public String toString() {
-        return "Person" +
-                "\n name: '" + name + '\'' +
-                ", \n armor: " + getFullArmor() +
-//                ", \n hp: " + getFullHP() +
-                ", \n strong: " + getFullStrong() +
-                ", \n attack: " + getFullDamage() +
-                ", \n weapon: " + weapon;
+        return "Person{" +
+                "name='" + name + '\'' +
+                ", defense=" + defense +
+                ", hp=" + hp +
+                ", strong=" + strong +
+                ", attack=" + attack +
+                ", weapon=" + weapon +
+                ", accessories=" + accessories +
+                ", armor=" + armor +
+                ", dropStrong=" + dropStrong +
+                ", alive=" + alive +
+                '}';
     }
 
     public String getName() {
@@ -177,7 +134,20 @@ public class Person {
         this.dropStrong = dropStrong;
     }
 
+    public boolean isAlive() {
+        return alive;
+    }
 
+    public void strike(Person person) {
+        person.minusHp(attack);
+    }
+
+    private void minusHp(int attack) {
+        hp = hp - attack;
+        if (hp <= 0) {
+            alive = false;
+        }
+    }
 }
 
 

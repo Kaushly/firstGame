@@ -50,4 +50,13 @@ public class Accessories {
     public void setWeight(double weight) {
         this.weight = weight;
     }
+
+    @Override
+    public String toString() {
+        return "Accessories{" +
+                "dropName='" + dropName + '\'' +
+                ", weight=" + weight +
+                ", effect=" + effect +
+                '}';
+    }
 }

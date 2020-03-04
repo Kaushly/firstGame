@@ -1,4 +1,4 @@
-import java.sql.SQLOutput;
+import java.io.*;
 
 //todo добавить  ограничение на взятие оружя у врага
 /// TODO: 04.02.2020  добавить инвентарь в персонажа, куда можно положить вещи
@@ -12,50 +12,105 @@ public class Main {
     private static ArmorFactory armorFactory = new ArmorFactory();
     private static AccessoriesFactory accessoriesFactory = new AccessoriesFactory();
 
-    public static void main(String[] args) {
-
-//        Person vasya = new Person("Vasya");
-//        Weapon bow = weaponFactory.getWeaponByName("лук");
-//        Accessories talisman = weaponFactory.getDropHPByName("Талисман");
-//        vasya.setWeapon(bow);
-//        vasya.setAccessories(talisman);
-//
-//
-//        Enemy dima = new Enemy("Dima", 12, 100, 21);
-//        Weapon sword = weaponFactory.getWeaponByName("меч");
-//        dima.setWeapon(sword);
-//        System.out.println(vasya);
-//        System.out.println("Получаем полное количество ХП у Васи" + vasya.getFullHP());
-//        System.out.println(dima);
-
+    public static void main(String[] args) throws IOException {
         //todo command+p
-        Person maxail = new Person("Mixail");
-        Enemy lion = new Enemy("Lion");
-        armorFactory.getAllArmors().forEach(System.out::println);
-        accessoriesFactory.getAllAccessories().forEach(System.out::println);
-        System.out.println(maxail);
-        System.out.println(lion);
-        maxail.setArmor(armorFactory.getArmorByName("шлем"));
-        lion.setAccessories(accessoriesFactory.getAccessoriesByName("дидема"));
-        lion.setArmor(armorFactory.getArmorByName("доспех"));
-//        System.out.println(maxail);
-//        maxail.setArmor(armorFactory.getArmorByName("доспех"));
-//        System.out.println(maxail);
-        maxail.setAccessories(accessoriesFactory.getAccessoriesByName("золотое кольцо"));
-        System.out.println(lion);
-        System.out.println(maxail);
+        Person maxail = getFirstPerson();
+        Person lion = getSecondPerson();
+        boolean gameOver = false;
+        while (!gameOver) {
+            BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+            System.out.println("1 - Показать броню");
+            System.out.println("2 - Показать аксесуары");
+            System.out.println("3 - Информация о персонаже");
+            System.out.println("4 - Атаковать");
+            int numberMenu = Integer.parseInt(reader.readLine());
+            //todo добавь выбор оружие и объедени весь выбор одежды в отдельное меню
+            switch (numberMenu) {
+                case 1:
+                    Armor armor = showAllArmor();
+                    maxail.setArmor(armor);
+                    break;
+                case 2:
+                    Accessories accessories = showAllAcessories();
+                    maxail.setAccessories(accessories);
+                    break;
+                case 3:
+                    System.out.println(maxail);
+                    break;
+                case 4:
+                    fight(maxail, lion);
+                    break;
+                default:
+                    gameOver = true;
+            }
+        }
 
 
 //todo сделать игровой цикл while
 //        while(maxail.getHp() <= 0 || lion.getHp() <= 0){
-//             lion.getHp() = lion.getHp() - maxail.getFullDamage();
-//             maxail.getHp() = maxail.getHp() - lion.getFullDamage();
+//             lion.setHp(lion.getHp() - maxail.getFullDamage());
+//             maxail.setHp( maxail.getHp() - lion.getFullDamage());
 //             if (lion.getHp() <= 0){
 //                 System.out.println("Победу одержал" + name.person);
 //            }
-//
+////
 //        }
 
+//        while ()
+
+
+    }
+
+    private static void fight(Person maxail, Person lion) {
+        while (maxail.isAlive() && lion.isAlive()) {
+            maxail.strike(lion);
+            lion.strike(maxail);
+            System.out.println(maxail.getName() + " " + maxail.getHp());
+            System.out.println(lion.getName() + " " + lion.getHp());
+        }
+
+        if (maxail.isAlive()) {
+            System.out.println("Выиграл " + maxail.getName());
+        } else {
+            System.out.println("Выиграл " + lion.getName());
+        }
+    }
+
+    private static Accessories showAllAcessories() throws IOException {
+        while (true) {
+            BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+            int number = 1;
+            for (String allArmor : accessoriesFactory.getAllAccessories()) {
+                System.out.println(number++ + " " + allArmor);
+            }
+            String name = reader.readLine();
+            return accessoriesFactory.getAccessoriesByName(name);
+
+        }
+    }
+
+    private static Armor showAllArmor() throws IOException {
+        while (true) {
+            BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+            int number = 1;
+            for (String allArmor : armorFactory.getAllArmors()) {
+                System.out.println(number++ + " " + allArmor);
+            }
+            String name = reader.readLine();
+            return armorFactory.getArmorByName(name);
+
+        }
+    }
+
+    private static Person getSecondPerson() {
+        Person lion = new Person("Lion");
+        return lion;
+    }
+
+    private static Person getFirstPerson() {
+        Person maxail = new Person("Mixail");
+        maxail.setHp(50);
+        return maxail;
     }
 
 }

@@ -35,4 +35,13 @@ public class Armor {
     public void setEffect(List<Effect> effect) {
         this.effect = effect;
     }
+
+    @Override
+    public String toString() {
+        return "Armor{" +
+                "name='" + name + '\'' +
+                ", weight=" + weight +
+                ", effect=" + effect +
+                '}';
+    }
 }
