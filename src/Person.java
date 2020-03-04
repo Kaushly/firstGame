@@ -67,12 +67,12 @@ public class Person {
         return attack + weapon.getDamage();
     }
 
-    public int getFullHP() {
-        if (accessories == null) {
-            return hp;
-        }
-        return hp + accessories.getBonusHP();
-    }
+//    public int getFullHP() {
+//        if (accessories == null) {
+//            return hp;
+//        }
+//        return hp + accessories.getBonusHP();
+//    }
 
     public int getFullArmor() {
         if (armor == null || armor.getEffect() == null) {
@@ -99,7 +99,7 @@ public class Person {
         return "Person" +
                 "\n name: '" + name + '\'' +
                 ", \n armor: " + getFullArmor() +
-                ", \n hp: " + getFullHP() +
+//                ", \n hp: " + getFullHP() +
                 ", \n strong: " + getFullStrong() +
                 ", \n attack: " + getFullDamage() +
                 ", \n weapon: " + weapon;

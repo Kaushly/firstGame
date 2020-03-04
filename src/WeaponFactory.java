@@ -3,7 +3,6 @@ import java.util.Map;
 
 public class WeaponFactory {
     private Map<String, Weapon> map = new HashMap<>();
-    private Map<String, Accessories> hp = new HashMap<>();
     private Map<String, DropStrong> strong = new HashMap<>();
 
     //todo разнести на разные фабрики
@@ -11,10 +10,6 @@ public class WeaponFactory {
         map.put("лук", new Weapon("Лук", 12, 1, "Дальнее", 17));
         map.put("меч", new Weapon("Меч", 25, 3, "Ближнее", 20));
         map.put("копье", new Weapon("Копье", 18, 2, "Среднее", 18));
-
-        hp.put("кольцо", new Accessories("Кольцо", 0.1, 10));
-        hp.put("ожерелье", new Accessories("Ожерелье", 0.5, 15));
-        hp.put("талисман", new Accessories("Талисман", 0.2, 20));
 
         strong.put("перчатка", new DropStrong("Перчатка", 2, 5));
         strong.put("кастет", new DropStrong("Кастет", 2, 12));
@@ -26,9 +21,9 @@ public class WeaponFactory {
         return map.get(dropName.toLowerCase());
     }
 
-    public Accessories getDropHPByName(String dropName) {
-        return hp.get(dropName.toLowerCase());
-    }
+//    public Accessories getDropHPByName(String dropName) {
+//        return hp.get(dropName.toLowerCase());
+//    }
 
 
 //    public DropArmor getWeaponByName(String DropName) {

@@ -16,6 +16,7 @@ public class ArmorFactory {
                 Collections.singletonList(effectFactory.createEffect("здоровье", 20))));
         armors.put("доспех", new Armor("Железный доспех", 20, getArmorHp()));
 //todo options+comma+m
+
         armors.put("шлем", new Armor("Шлем веселый", 12, getEffectsForHelmet()));
     }
 
