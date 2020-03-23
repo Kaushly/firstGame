@@ -1,3 +1,5 @@
+package gamefight;
+
 import java.util.*;
 
 public class Maoo {

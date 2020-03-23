@@ -1,3 +1,7 @@
+package gamefight;
+
+import gamefight.items.Accessories;
+
 import java.util.*;
 
 public class AccessoriesFactory {

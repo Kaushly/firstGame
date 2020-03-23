@@ -1,13 +1,15 @@
+package gamefight.items;
+
 public class Weapon {//POJO class
 
-    private String DropName;
+    private String name;
     private int damage;
     private int weight;
     private String type;
     private int strength;
 
-    public Weapon(String DropName, int damage, int weight, String type, int strength){
-        this.DropName = DropName;
+    public Weapon(String name, int damage, int weight, String type, int strength){
+        this.name = name;
         this.damage = damage;
         this.weight = weight;
         this.type = type;
@@ -17,7 +19,7 @@ public class Weapon {//POJO class
     @Override
     public String toString() {
         return
-                " title = '" + DropName + '\'' +
+                " title = '" + name + '\'' +
                 ", damage = " + damage +
                 ", weight = " + weight +
                 ", type = '" + type + '\'' +
@@ -25,16 +27,16 @@ public class Weapon {//POJO class
     }
 
     public void info() {
-        System.out.println("Назвние: " + DropName + "\nУрон: " + damage + "\nВес:" +
+        System.out.println("Назвние: " + name + "\nУрон: " + damage + "\nВес:" +
                 " " + weight + "\nТип: " + type + "\nСила: " + strength + "\n");
     }
 
-    public String getTitle() {
-        return DropName;
+    public String getName() {
+        return name;
     }
 
-    public void setTitle(String DropName) {
-        this.DropName = DropName;
+    public void setName(String DropName) {
+        this.name = DropName;
     }
 
     public int getDamage() {

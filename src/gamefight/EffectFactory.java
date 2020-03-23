@@ -1,3 +1,5 @@
+package gamefight;
+
 import java.util.HashMap;
 import java.util.Map;
 

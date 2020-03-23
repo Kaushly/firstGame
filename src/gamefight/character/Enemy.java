@@ -1,5 +1,17 @@
-public class Person {
+package gamefight.character;
 
+import gamefight.DropStrong;
+import gamefight.Effect;
+import gamefight.EffectType;
+import gamefight.items.Accessories;
+import gamefight.items.Armor;
+import gamefight.items.Weapon;
+
+//todo создать класс fight.items.Weapon параметры сила урона, цвет, вес, тип оружия , прочность
+// и добавь возможность персонажу установить оружие
+//todo создай с 4 параметрами и 3 метода получение урона, вывести информацию о параметрах
+public class Enemy {
+    //модификаторы доступа private, protected , default ,public
     private String name;
     private int defense;  // броня
     private int hp;
@@ -9,14 +21,14 @@ public class Person {
     private Accessories accessories;
     private Armor armor;
     private DropStrong dropStrong;
-    private boolean alive = true;
 
-    public Person(String name) {
+    public Enemy(String name) {
         this.name = name;
-        this.defense = 15;
-        this.hp = 100;
+        this.defense = 30;
+        this.hp = 50;
         this.strong = 20;
         this.attack = 5;
+
     }
 
     public int getFullDamage() {
@@ -25,6 +37,13 @@ public class Person {
         }
         return attack + weapon.getDamage();
     }
+
+//    public int getFullHP() {
+//        if (accessories == null) {
+//            return hp;
+//        }
+//        return hp + accessories.getBonusHP();
+//    }
 
     public int getFullArmor() {
         if (armor == null || armor.getEffect() == null) {
@@ -45,20 +64,26 @@ public class Person {
         return strong + dropStrong.getBonusStrong();
     }
 
+
     @Override
     public String toString() {
-        return "Person{" +
-                "name='" + name + '\'' +
-                ", defense=" + defense +
-                ", hp=" + hp +
-                ", strong=" + strong +
-                ", attack=" + attack +
-                ", weapon=" + weapon +
-                ", accessories=" + accessories +
-                ", armor=" + armor +
-                ", dropStrong=" + dropStrong +
-                ", alive=" + alive +
-                '}';
+        return "fight.character.Person" +
+                "\n name: '" + name + '\'' +
+                ", \n armor: " + getFullArmor() +
+//                ", \n hp: " + getFullHP() +
+                ", \n strong: " + getFullStrong() +
+                ", \n attack: " + getFullDamage() +
+                ", \n weapon: " + weapon;
+    }
+
+    //    public int fight(fight.items.Weapon anotherWeapon) {
+//        if (this.strong >= anotherWeapon.getStrength()) {
+//            this.attack = this.strong + anotherWeapon.getDamage();
+//        } else this.attack = this.strong;
+//        return attack;
+//    }
+    public int getStrong() {
+        return strong;
     }
 
     public String getName() {
@@ -73,7 +98,7 @@ public class Person {
         return defense;
     }
 
-    public void setDefense(int defense) {
+    public void setDefenseint(int defense) {
         this.defense = defense;
     }
 
@@ -83,10 +108,6 @@ public class Person {
 
     public void setHp(int hp) {
         this.hp = hp;
-    }
-
-    public int getStrong() {
-        return strong;
     }
 
     public void setStrong(int strong) {
@@ -133,21 +154,5 @@ public class Person {
         this.dropStrong = dropStrong;
     }
 
-    public boolean isAlive() {
-        return alive;
-    }
 
-    public void strike(Person person) {
-        person.minusHp(attack);
-    }
-
-    private void minusHp(int attack) {
-        hp = hp - attack;
-        if (hp <= 0) {
-            alive = false;
-        }
-    }
 }
-
-
-

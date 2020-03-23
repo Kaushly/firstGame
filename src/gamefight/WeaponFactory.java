@@ -1,3 +1,7 @@
+package gamefight;
+
+import gamefight.items.Weapon;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;

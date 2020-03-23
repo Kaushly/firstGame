@@ -1,3 +1,5 @@
+package gamefight;
+
 public class Effect {
     private String name;
     private EffectType type;
@@ -34,7 +36,7 @@ public class Effect {
 
     @Override
     public String toString() {
-        return "Effect{" +
+        return "fight.Effect{" +
                 "name='" + name + '\'' +
                 ", type='" + type + '\'' +
                 ", value=" + value +

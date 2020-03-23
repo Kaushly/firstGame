@@ -1,3 +1,7 @@
+package gamefight.items;
+
+import gamefight.Effect;
+
 import java.util.List;
 
 public class Armor {
@@ -38,7 +42,7 @@ public class Armor {
 
     @Override
     public String toString() {
-        return "Armor{" +
+        return "fight.items.Armor{" +
                 "name='" + name + '\'' +
                 ", weight=" + weight +
                 ", effect=" + effect +

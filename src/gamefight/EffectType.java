@@ -1,3 +1,5 @@
+package gamefight;
+
 public enum EffectType {
     HEALS("здоровье"),
     STRONG("сила"),

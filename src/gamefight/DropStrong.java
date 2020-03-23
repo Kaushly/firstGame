@@ -1,3 +1,5 @@
+package gamefight;
+
 public class DropStrong {
     private String DropName;
     private int weight;

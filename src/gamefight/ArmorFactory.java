@@ -1,3 +1,7 @@
+package gamefight;
+
+import gamefight.items.Armor;
+
 import java.util.*;
 
 public class ArmorFactory {

@@ -1,8 +1,12 @@
+package gamefight.items;
+
+import gamefight.Effect;
+
 import java.util.List;
 
 public class Accessories {
 //fn+shift+f6
-    private String dropName;
+    private String name;
     private double weight;
 //    private int bonusHP;
     private List<Effect> effect;
@@ -12,19 +16,19 @@ public class Accessories {
 
 
 
-    public Accessories(String dropName, double weight, List<Effect> effect){
-        this.dropName = dropName;
+    public Accessories(String name, double weight, List<Effect> effect){
+        this.name = name;
         this.weight = weight;
         this.effect = effect;
 //        this.bonusHP = bonusHP;
     }
 
-    public String getDropName() {
-        return dropName;
+    public String getName() {
+        return name;
     }
 
-    public void setDropName(String dropName) {
-        this.dropName = dropName;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public List<Effect> getEffect() {
@@ -53,8 +57,8 @@ public class Accessories {
 
     @Override
     public String toString() {
-        return "Accessories{" +
-                "dropName='" + dropName + '\'' +
+        return "fight.items.Accessories{" +
+                "dropName='" + name + '\'' +
                 ", weight=" + weight +
                 ", effect=" + effect +
                 '}';
