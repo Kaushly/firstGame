@@ -16,7 +16,7 @@ public class Enemy {
     public Enemy(String name) {
         this.name = name;
         this.defense = 30;
-        this.hp = 90;
+        this.hp = 50;
         this.strong = 20;
         this.attack = 5;
 

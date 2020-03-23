@@ -19,7 +19,6 @@ public class Person {
         this.attack = 5;
     }
 
-
     public int getFullDamage() {
         if (weapon == null) {
             return attack;

@@ -1,15 +1,16 @@
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 
 public class WeaponFactory {
-    private Map<String, Weapon> map = new HashMap<>();
+    private Map<String, Weapon> weapons = new HashMap<>();
     private Map<String, DropStrong> strong = new HashMap<>();
 
     //todo разнести на разные фабрики
     public WeaponFactory() {
-        map.put("лук", new Weapon("Лук", 12, 1, "Дальнее", 17));
-        map.put("меч", new Weapon("Меч", 25, 3, "Ближнее", 20));
-        map.put("копье", new Weapon("Копье", 18, 2, "Среднее", 18));
+        weapons.put("лук", new Weapon("Лук", 12, 1, "Дальнее", 17));
+        weapons.put("меч", new Weapon("Меч", 25, 3, "Ближнее", 20));
+        weapons.put("копье", new Weapon("Копье", 18, 2, "Среднее", 18));
 
         strong.put("перчатка", new DropStrong("Перчатка", 2, 5));
         strong.put("кастет", new DropStrong("Кастет", 2, 12));
@@ -18,21 +19,12 @@ public class WeaponFactory {
 
 
     public Weapon getWeaponByName(String dropName) {
-        return map.get(dropName.toLowerCase());
+        return weapons.get(dropName.toLowerCase());
     }
 
-//    public Accessories getDropHPByName(String dropName) {
-//        return hp.get(dropName.toLowerCase());
-//    }
+    public Set<String> getAllWeapons() {
+        return weapons.keySet();
+    }
 
 
-//    public DropArmor getWeaponByName(String DropName) {
-//        return armor.get(DropName.toLowerCase());
-//}
-//    public DropStrong getWeaponByName(String DropName) {
-//        return strong.get(DropName.toLowerCase());
-//    }
-//    public DropHP getWeaponByName(String DropName) {
-//        return hp.get(DropName.toLowerCase());
-//    }
 }
