@@ -2,6 +2,9 @@ package gamefight;
 
 import gamefight.items.Weapon;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
@@ -30,5 +33,19 @@ public class WeaponFactory {
         return weapons.keySet();
     }
 
+    public Weapon showAllWeapons() throws IOException {
+        while (true) {
+            BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+            int number = 1;
+            for (String allWeapon : getAllWeapons()) {
+                System.out.println(number++ + " " + allWeapon);
+            }
+            System.out.print("Название предмета: ");
+            String name = reader.readLine();
+            System.out.println();
+
+            return getWeaponByName(name);
+        }
+    }
 
 }

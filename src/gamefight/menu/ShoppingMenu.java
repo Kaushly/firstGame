@@ -28,7 +28,7 @@ public class ShoppingMenu {
                     System.out.println(person.getName() + " одел " + armor.getName());
                     break;
                 case 2:
-                    Weapon weapon = showAllWeapons();
+                    Weapon weapon = weaponFactory.showAllWeapons();
                     person.setWeapon(weapon);
                     System.out.println(person.getName() + " одел " + weapon.getName());
                     break;
@@ -50,21 +50,6 @@ public class ShoppingMenu {
         System.out.println("0 - Вернуться в основное меню");
     }
 
-    private Weapon showAllWeapons() throws IOException {
-        while (true) {
-            BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-            int number = 1;
-            for (String allWeapon : weaponFactory.getAllWeapons()) {
-                System.out.println(number++ + " " + allWeapon);
-            }
-            System.out.print("Название предмета: ");
-            String name = reader.readLine();
-            System.out.println();
-
-            return weaponFactory.getWeaponByName(name);
-
-        }
-    }
 
     private Accessories showAllAcessories() throws IOException {
         while (true) {
