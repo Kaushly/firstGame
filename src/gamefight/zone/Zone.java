@@ -44,7 +44,7 @@ public class Zone {
     public String[][] initField() {
         init();
         Set<Integer> enemy = new HashSet<>();
-        for (int i = 0; i < 5; ) {
+        for (int i = 0; i < 3; ) {
             if (isAdd(enemy)) {
                 i++;
             }
