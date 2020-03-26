@@ -1,6 +1,7 @@
 package gamefight.menu;
 
 import gamefight.character.Person;
+import gamefight.character.PersonField;
 import gamefight.field.Coordinate;
 import gamefight.field.Field;
 import gamefight.utils.ConsoleUtils;
@@ -21,9 +22,9 @@ public class ZoneMenu {
     }
 
     public void show(Person person) {
-        zone.initField();
-        Coordinate coordinate = new Coordinate(0, 0);
-        person.setCoordinate(coordinate);
+        PersonField personField = zone.initField(person);
+
+        Coordinate coordinate = personField.getCoordinate();
         while (true) {
             zone.drawField();
             printMenu();

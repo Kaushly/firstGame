@@ -20,7 +20,6 @@ public class Person {
     private Armor armor;
     private DropStrong dropStrong;
     private boolean alive = true;
-    private Coordinate coordinate;
 
     public Person(String name) {
         this.name = name;
@@ -141,14 +140,6 @@ public class Person {
 
     public void setDropStrong(DropStrong dropStrong) {
         this.dropStrong = dropStrong;
-    }
-
-    public Coordinate getCoordinate() {
-        return coordinate;
-    }
-
-    public void setCoordinate(Coordinate coordinate) {
-        this.coordinate = coordinate;
     }
 
     public boolean isAlive() {

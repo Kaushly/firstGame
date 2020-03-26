@@ -31,4 +31,8 @@ public class PersonField implements FieldElement {
     public String getCharacter() {
         return "O";
     }
+
+    public void setPerson(Person person) {
+        this.person = person;
+    }
 }

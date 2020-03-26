@@ -1,6 +1,8 @@
 package gamefight.zone;
 
 import gamefight.character.Person;
+import gamefight.character.PersonField;
+import gamefight.field.Coordinate;
 import gamefight.field.Field;
 
 public class Zone {
@@ -28,8 +30,12 @@ public class Zone {
         field.drawField();
     }
 
-    public void initField() {
-        field.initField();
+    public PersonField initField(Person person) {
+
+        PersonField personField = new PersonField(new Coordinate(field.getWight() / 2, field.getHeight() - 1));
+        personField.setPerson(person);
+        field.initField(personField);
+        return personField;
     }
 
     public Field getField() {

@@ -3,6 +3,13 @@ package gamefight.character;
 import gamefight.field.Coordinate;
 
 public class EmptyField implements FieldElement {
+
+    private Coordinate coordinate;
+
+    public EmptyField(Coordinate coordinate) {
+        this.coordinate = coordinate;
+    }
+
     @Override
     public void action(Person person) {
 
@@ -15,7 +22,7 @@ public class EmptyField implements FieldElement {
 
     @Override
     public Coordinate getCoordinate() {
-        return null;
+        return coordinate;
     }
 
     @Override

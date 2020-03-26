@@ -36,7 +36,7 @@ public class StartMenu {
                     System.out.println(person);
                     break;
                 case 4:
-                    zone.initField();
+                    zone.initField(person);
                     break;
                 case 5:
                     zone.drawField();
