@@ -3,25 +3,23 @@ package gamefight;
 import gamefight.items.Accessories;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class AccessoriesFactory {
-    private Map<String, Accessories> accessories = new HashMap<>();
+    private Map<Integer, Accessories> accessories = new HashMap<>();
     private EffectFactory effectFactory = new EffectFactory();
 
     public AccessoriesFactory() {
-        accessories.put("золотое кольцо", new Accessories("Золотое кольцо", 2,
+        accessories.put(1, new Accessories("Золотое кольцо",
                 Collections.singletonList(effectFactory.createEffect("здоровье", 7))));
-        accessories.put("серебрянный перстень", new Accessories("Серебрянный перстень", 2,
+        accessories.put(2, new Accessories("Серебрянный перстень",
                 Collections.singletonList(effectFactory.createEffect("здоровье", 2))));
-
-        accessories.put("простое кольцо", new Accessories("Простое кольцо", 2,
+        accessories.put(3, new Accessories("Простое кольцо",
                 Collections.singletonList(effectFactory.createEffect("броня", 5))));
-        accessories.put("ожерелье", new Accessories("Ожерелье", 10,
+        accessories.put(4, new Accessories("Ожерелье",
                 Collections.singletonList(effectFactory.createEffect("здоровье", 20))));
-        accessories.put("талисман", new Accessories("Талисман", 20, getArmorHp()));
-//todo options+comma+m
-
-        accessories.put("волшебная диадема", new Accessories("Волшебная диадема", 12, getEffectsForHelmet()));
+        accessories.put(5, new Accessories("Талисман", getArmorHp()));
+        accessories.put(6, new Accessories("Волшебная диадема", getEffectsForHelmet()));
     }
 
     private ArrayList<Effect> getEffectsForHelmet() {
@@ -40,12 +38,23 @@ public class AccessoriesFactory {
         return effects;
     }
 
-    public Accessories getAccessoriesByName(String accessoriesName) {
-        return accessories.get(accessoriesName.toLowerCase());
+    public Accessories getAccessoriesByNumber(Integer accessoriesNumber) {
+        return accessories.get(accessoriesNumber - 1);
     }
 
+//    public Set<String> getAllAccessories() {
+//        return accessories.values()
+//                .stream()
+//                .map(Accessories::getName)
+//                .collect(Collectors.toSet());
+//    }
+
     public Set<String> getAllAccessories() {
-        return accessories.keySet();
+        LinkedHashSet<String > set = new LinkedHashSet<>();
+        for (Accessories value : accessories.values()) {
+            set.add(value.getName());
+        }
+        return set;
     }
 }
 

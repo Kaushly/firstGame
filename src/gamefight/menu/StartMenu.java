@@ -30,16 +30,7 @@ public class StartMenu {
                     break;
                 case 2:
                     zoneMenu.show(person);
-//                    Person currentEnemy = zone.getFirstEnemy();
-//                    fight(person, currentEnemy);
-//                    if (person.isAlive()) {
-//                        System.out.println("Вы выжили с hp =  " + person.getHp());
-//                        break;
-//                    } else {
-//                        System.out.println("Вы проиграли, возвращаетесь в город");
-//                        resetLocateAndCharacter(person);
-//                    }
-//                    System.out.println("выберете зону");//todo выбрать зону
+// todo выбрать зону
                     break;
                 case 3:
                     System.out.println(person);
@@ -57,19 +48,19 @@ public class StartMenu {
     }
 
 
-    private void fight(Person person, Person enemy) {
-        while (person.isAlive() && enemy.isAlive()) {
-            person.strike(enemy);
-            enemy.strike(person);
-            System.out.println(person.getName() + " " + person.getHp());
-            System.out.println(enemy.getName() + " " + enemy.getHp());
-        }
-    }
+//    private void fight(Person person, Person enemy) {
+//        while (person.isAlive() && enemy.isAlive()) {
+//            person.strike(enemy);
+//            enemy.strike(person);
+//            System.out.println(person.getName() + " " + person.getHp());
+//            System.out.println(enemy.getName() + " " + enemy.getHp());
+//        }
+//    }
 
 
-    private void resetLocateAndCharacter(Person mixail) {
-        mixail.setHp(0);
-    }
+//    private void resetLocateAndCharacter(Person mixail) {
+//        mixail.setHp(0);
+//    }
 
 
 }

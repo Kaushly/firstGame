@@ -68,12 +68,14 @@ public class Field {
     }
 
     public void go(Coordinate coordinate) {
-        if (coordinate.getX() < field.length && coordinate.getY() < field.length && coordinate.getY() >= 0 && coordinate.getX() >= 0) {
+        if (coordinate.getX() < field.length && coordinate.getY() < field.length && coordinate.getY() >= 0
+                && coordinate.getX() >= 0) {
             System.out.println("Вы перемащаетесь на координаты " + coordinate);
             if (field[coordinate.getX()][coordinate.getY()].equals("*")) {
                 System.out.println("Вы убили монстра");
                 field[coordinate.getX()][coordinate.getY()] = "X";
-            }
+            }else
+                field[coordinate.getX()][coordinate.getY()] = "$";
         } else {
             coordinate.clearCoordinate();
             System.out.println("Вы вступили на запретную зону");

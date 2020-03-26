@@ -1,5 +1,6 @@
 package gamefight.menu;
 
+import gamefight.character.Enemy;
 import gamefight.character.Person;
 import gamefight.field.Coordinate;
 import gamefight.field.Field;
@@ -18,10 +19,9 @@ public class ZoneMenu {
         System.out.println("3 - Вправо");
         System.out.println("4 - Вниз");
         System.out.println("5 - Показать координаты");
+        System.out.println("6 - Напасть на монстра");
         System.out.println("0 - Вернуться в город");
-
     }
-
 
     public void show(Person person) {
         zone.initField();
@@ -30,7 +30,6 @@ public class ZoneMenu {
         while (true) {
             zone.drawField();
             printMenu();
-
             Field field = zone.getField();
             int numberMenu = ConsoleUtils.getIntFromConsole();
             switch (numberMenu) {
@@ -53,13 +52,21 @@ public class ZoneMenu {
                 case 5:
                     System.out.println(coordinate);
                     break;
+                case 6:
+                    Person currentEnemy = zone.getFirstEnemy();
+                    fight(person, currentEnemy);
+                    if (person.isAlive()) {
+                        System.out.println("Вы выжили с hp =  " + person.getHp());
+                    } else {
+                        System.out.println("Вы проиграли, возвращаетесь в город");
+                        resetLocateAndCharacter(person);
+                    }
+                    break;
                 case 0:
                     return;
             }
         }
     }
-
-
     private void fight(Person person, Person enemy) {
         while (person.isAlive() && enemy.isAlive()) {
             person.strike(enemy);
@@ -68,11 +75,7 @@ public class ZoneMenu {
             System.out.println(enemy.getName() + " " + enemy.getHp());
         }
     }
-
-
     private void resetLocateAndCharacter(Person mixail) {
         mixail.setHp(0);
     }
-
-
 }

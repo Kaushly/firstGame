@@ -42,7 +42,7 @@ public class Maoo {
         personLinkName.add("Yakov");
 
 
-        //todo  легко добавить элементы,
+        
 
         for (String s : personLinkName) {
             System.out.println(s);

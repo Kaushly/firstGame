@@ -58,8 +58,7 @@ public class Person {
 
     @Override
     public String toString() {
-        return "fight.character.Person{" +
-                "name='" + name + '\'' +
+        return  name +
                 ", defense=" + defense +
                 ", hp=" + hp +
                 ", strong=" + strong +
@@ -68,9 +67,9 @@ public class Person {
                 ", accessories=" + accessories +
                 ", armor=" + armor +
                 ", dropStrong=" + dropStrong +
-                ", alive=" + alive +
-                '}';
+                ", alive=" + alive;
     }
+
 
     public String getName() {
         return name;

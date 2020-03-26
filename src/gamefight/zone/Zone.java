@@ -11,11 +11,9 @@ public class Zone {
 
     public Person getFirstEnemy() {
         Person orc = new Person("Trall");
-        int min = 10;
-        int max = 30;
-        orc.setHp((int) (Math.random() * 100));
-        orc.setAttack(orc.getAttack() + (int) (Math.random() * ((max - min) + 1) * 1));
-//        orc.setArmor((int)Math.random() * 10);
+        orc.setHp(orc.getHp() + (int)(Math.random() * 10));
+        orc.setAttack(orc.getAttack() + (int) (Math.random() * 10));
+        orc.setDefense(orc.getDefense() + (int)(Math.random() * 10));
         return orc;
     }
 
@@ -38,8 +36,8 @@ public class Zone {
         return field;
     }
     // 1 2 3
-// 4 5 6
-// 7 8 9
+    // 4 5 6
+    // 7 8 9
 
 
 }

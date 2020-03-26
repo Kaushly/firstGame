@@ -31,21 +31,21 @@ public class Coordinate {
 
 
     public void up() {
-        prevX = x++;
+        prevX = y--;
     }
 
     public void down() {
-        prevX = x--;
+        prevX = y++;
     }
 
     public void left() {
-        prevY = y--;
+        prevY = x--;
     }
 
     public void right() {
-        prevY = y++;
+        prevY = x++;
     }
-
+// todo: Исправил перемещение героя по карте
     @Override
     public String toString() {
         return "Coordinate{" +

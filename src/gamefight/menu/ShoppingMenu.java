@@ -25,17 +25,17 @@ public class ShoppingMenu {
                 case 1:
                     Armor armor = showAllArmor();
                     person.setArmor(armor);
-                    System.out.println(person.getName() + " одел " + armor.getName());
+                    System.out.println(person.getName() + " надел " + armor.getName());
                     break;
                 case 2:
-                    Weapon weapon = weaponFactory.showAllWeapons();
+                    Weapon weapon = showAllWeapons();
                     person.setWeapon(weapon);
-                    System.out.println(person.getName() + " одел " + weapon.getName());
+                    System.out.println(person.getName() + " надел " + weapon.getName());
                     break;
                 case 3:
                     Accessories accessories = showAllAcessories();
                     person.setAccessories(accessories);
-                    System.out.println(person.getName() + " одел " + accessories.getName());
+                    System.out.println(person.getName() + " надел " + accessories.getName());
                     break;
                 case 0:
                     return;
@@ -51,32 +51,36 @@ public class ShoppingMenu {
     }
 
 
-    private Accessories showAllAcessories() throws IOException {
+    private Accessories showAllAcessories() {
         while (true) {
-            BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
             int number = 1;
             for (String allAccessorie : accessoriesFactory.getAllAccessories()) {
                 System.out.println(number++ + " " + allAccessorie);
             }
-            System.out.print("Название предмета: ");
-            String name = reader.readLine();
-            System.out.println();
-            return accessoriesFactory.getAccessoriesByName(name);
+            System.out.print("Выбери предмет:  ");
+            return accessoriesFactory.getAccessoriesByNumber(ConsoleUtils.getIntFromConsole()+ 1);
 
         }
     }
 
-    private Armor showAllArmor() throws IOException {
+    private Armor showAllArmor() {
         while (true) {
-            BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
             int number = 1;
             for (String allArmor : armorFactory.getAllArmors()) {
                 System.out.println(number++ + " " + allArmor);
             }
-            System.out.print("Название предмета: ");
-            String name = reader.readLine();
-            System.out.println();
-            return armorFactory.getArmorByName(name);
+            System.out.print("Выбери предмет: ");
+            return armorFactory.getArmorByNumber(ConsoleUtils.getIntFromConsole() + 1);
+        }
+    }
+    private Weapon showAllWeapons() {
+        while (true) {
+            int number = 1;
+            for (String allWeapons : weaponFactory.getAllWeapons()) {
+                System.out.println(number++ + " " + allWeapons);
+            }
+            System.out.print("Выбери предмет: ");
+            return weaponFactory.getWeaponByNumber(ConsoleUtils.getIntFromConsole() + 1);
         }
     }
 }

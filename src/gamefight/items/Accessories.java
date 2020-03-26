@@ -7,7 +7,7 @@ import java.util.List;
 public class Accessories {
 //fn+shift+f6
     private String name;
-    private double weight;
+//    private double weight;
 //    private int bonusHP;
     private List<Effect> effect;
 
@@ -16,9 +16,9 @@ public class Accessories {
 
 
 
-    public Accessories(String name, double weight, List<Effect> effect){
+    public Accessories(String name, List<Effect> effect){
         this.name = name;
-        this.weight = weight;
+//        this.weight = weight;
         this.effect = effect;
 //        this.bonusHP = bonusHP;
     }
@@ -47,19 +47,18 @@ public class Accessories {
 //        this.bonusHP = bonusHP;
 //    }
 
-    public double getWeight() {
-        return weight;
-    }
+//    public double getWeight() {
+//        return weight;
+//    }
 
-    public void setWeight(double weight) {
-        this.weight = weight;
-    }
+//    public void setWeight(double weight) {
+//        this.weight = weight;
+//    }
 
     @Override
     public String toString() {
         return "fight.items.Accessories{" +
                 "dropName='" + name + '\'' +
-                ", weight=" + weight +
                 ", effect=" + effect +
                 '}';
     }
