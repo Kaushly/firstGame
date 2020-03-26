@@ -1,13 +1,10 @@
 package gamefight.menu;
 
-import gamefight.character.Enemy;
 import gamefight.character.Person;
 import gamefight.field.Coordinate;
 import gamefight.field.Field;
 import gamefight.utils.ConsoleUtils;
 import gamefight.zone.Zone;
-
-import java.io.IOException;
 
 public class ZoneMenu {
     private ShoppingMenu shopping = new ShoppingMenu();
@@ -25,7 +22,7 @@ public class ZoneMenu {
 
     public void show(Person person) {
         zone.initField();
-        Coordinate coordinate = new Coordinate();
+        Coordinate coordinate = new Coordinate(0, 0);
         person.setCoordinate(coordinate);
         while (true) {
             zone.drawField();
@@ -67,6 +64,7 @@ public class ZoneMenu {
             }
         }
     }
+
     private void fight(Person person, Person enemy) {
         while (person.isAlive() && enemy.isAlive()) {
             person.strike(enemy);
@@ -75,6 +73,7 @@ public class ZoneMenu {
             System.out.println(enemy.getName() + " " + enemy.getHp());
         }
     }
+
     private void resetLocateAndCharacter(Person mixail) {
         mixail.setHp(0);
     }

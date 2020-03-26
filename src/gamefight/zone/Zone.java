@@ -6,14 +6,14 @@ import gamefight.field.Field;
 public class Zone {
 
     private Person orc = getFirstEnemy();
-    private Field field = new Field();
+    private Field field = new Field(5, 5, 5, 3);
 
 
     public Person getFirstEnemy() {
         Person orc = new Person("Trall");
-        orc.setHp(orc.getHp() + (int)(Math.random() * 10));
+        orc.setHp(orc.getHp() + (int) (Math.random() * 10));
         orc.setAttack(orc.getAttack() + (int) (Math.random() * 10));
-        orc.setDefense(orc.getDefense() + (int)(Math.random() * 10));
+        orc.setDefense(orc.getDefense() + (int) (Math.random() * 10));
         return orc;
     }
 

@@ -1,85 +1,91 @@
 package gamefight.field;
 
-import java.util.HashSet;
+import gamefight.character.*;
+
 import java.util.Random;
-import java.util.Set;
 
 public class Field {
 
-    private String[][] field;
+    private FieldElement[][] field;
+    private int wight;
+    private int height;
+    private int countMonster;
+    private int lifeMonster;
+    private int countChest;
+    private int lifeChest;
 
-    public String[][] initField() {
-        init();
-        Set<Integer> enemy = new HashSet<>();
-        for (int i = 0; i < 3; ) {
-            if (isAdd(enemy)) {
-                i++;
-            }
-        }
+    public Field(int wight, int height, int countMonster, int countChest) {
+        field = init(wight, height);
+        this.wight = wight;
+        this.height = height;
+        this.countMonster = countMonster;
+        this.countChest = countChest;
+    }
 
-        for (Integer integer : enemy) {
-            if (integer == 0) {
-                field[0][0] = "*";
-            } else if (integer == 1) {
-                field[0][1] = "*";
-            } else if (integer == 2) {
-                field[0][1] = "*";
-            } else if (integer == 3) {
-                field[0][2] = "*";
-            } else if (integer == 4) {
-                field[1][0] = "*";
-            } else if (integer == 5) {
-                field[1][1] = "*";
-            } else if (integer == 6) {
-                field[1][2] = "*";
-            } else if (integer == 7) {
-                field[2][0] = "*";
-            } else if (integer == 8) {
-                field[2][1] = "*";
-            }
-        }
-
+    public FieldElement[][] initField() {
+        init(wight, height);
+        setEnemy();
+        setChest();
         return field;
     }
 
-    private String[][] init() {
-        field = new String[3][3];
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 3; j++) {
-                field[i][j] = "?";
+    private void setEnemy() {
+        while (lifeMonster != countMonster) {
+            Coordinate coordinate = new Coordinate(new Random().nextInt(wight), new Random().nextInt(height));
+            if (field[coordinate.getX()][coordinate.getY()].getType() == FieldType.EMPTY) {
+                lifeMonster++;
+                field[coordinate.getX()][coordinate.getY()] = new EnemyField(coordinate);
+            }
+        }
+    }
+
+    private void setChest() {
+        while (lifeChest != countChest) {
+            Coordinate coordinate = new Coordinate(new Random().nextInt(wight), new Random().nextInt(height));
+            if (field[coordinate.getX()][coordinate.getY()].getType() == FieldType.EMPTY) {
+                lifeChest++;
+                field[coordinate.getX()][coordinate.getY()] = new ChestField(coordinate);
+            }
+        }
+    }
+
+    private FieldElement[][] init(int wight, int height) {
+        field = new FieldElement[wight][height];
+        for (int i = 0; i < height; i++) {
+            for (int j = 0; j < wight; j++) {
+                field[i][j] = new EmptyField();
             }
         }
         return field;
     }
 
     public void drawField() {
-        for (int j = 0; j < field.length; j++) {
-            for (int i = 0; i < field.length; i++) {
-                System.out.print(field[i][j] + " ");
+        for (int j = 0; j < height; j++) {
+            for (int i = 0; i < wight; i++) {
+                System.out.print(field[i][j].getCharacter());
             }
             System.out.println();
         }
         System.out.println();
     }
 
-    private boolean isAdd(Set<Integer> enemy) {
-        int e = new Random().nextInt(9);
-        return enemy.add(e);
-    }
-
     public void go(Coordinate coordinate) {
-        if (coordinate.getX() < field.length && coordinate.getY() < field.length && coordinate.getY() >= 0
-                && coordinate.getX() >= 0) {
+        if (checkBorderZone(coordinate)) {
             System.out.println("Вы перемащаетесь на координаты " + coordinate);
-            if (field[coordinate.getX()][coordinate.getY()].equals("*")) {
+            if (field[coordinate.getX()][coordinate.getY()].getType() == FieldType.MONSTER) {
                 System.out.println("Вы убили монстра");
-                field[coordinate.getX()][coordinate.getY()] = "X";
-            }else
-                field[coordinate.getX()][coordinate.getY()] = "$";
+                field[coordinate.getX()][coordinate.getY()] = new EnemyField(new Coordinate(coordinate.getX(), coordinate.getY()));
+            } else
+                field[coordinate.getX()][coordinate.getY()] = new PersonField(new Coordinate(coordinate.getX(), coordinate.getY()));
         } else {
             coordinate.clearCoordinate();
             System.out.println("Вы вступили на запретную зону");
         }
+    }
+
+    private boolean checkBorderZone(Coordinate coordinate) {
+        return coordinate.getX() < wight && coordinate.getY() < height && coordinate.getY() >= 0
+                && coordinate.getX() >= 0;
     }
 
 

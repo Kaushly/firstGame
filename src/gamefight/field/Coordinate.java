@@ -6,11 +6,11 @@ public class Coordinate {
     private Integer prevX;
     private Integer prevY;
 
-    public Coordinate() {
-        x = 0;
-        y = 0;
-        prevY = 0;
-        prevX = 0;
+    public Coordinate(int x, int y) {
+        this.x = x;
+        this.y = y;
+        prevY = y;
+        prevX = x;
     }
 
     public Integer getX() {
@@ -45,7 +45,8 @@ public class Coordinate {
     public void right() {
         prevY = x++;
     }
-// todo: Исправил перемещение героя по карте
+
+    // todo: Исправил перемещение героя по карте
     @Override
     public String toString() {
         return "Coordinate{" +
