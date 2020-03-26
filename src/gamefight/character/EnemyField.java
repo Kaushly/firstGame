@@ -1,10 +1,12 @@
 package gamefight.character;
 
 import gamefight.field.Coordinate;
+import gamefight.menu.ActionZone;
 
 public class EnemyField implements FieldElement {
 
     private Enemy enemy;
+    private ActionZone actionZone = new ActionZone();
 
     private Coordinate coordinate;
 
@@ -14,7 +16,7 @@ public class EnemyField implements FieldElement {
 
     @Override
     public void action(Person person) {
-
+        actionZone.battle(person, enemy);
     }
 
     @Override
@@ -28,7 +30,15 @@ public class EnemyField implements FieldElement {
     }
 
     @Override
-    public String getCharacter() {
+    public String getSymbol() {
         return "M";
+    }
+
+    public Enemy getEnemy() {
+        return enemy;
+    }
+
+    public void setEnemy(Enemy enemy) {
+        this.enemy = enemy;
     }
 }

@@ -10,7 +10,7 @@ public class ActionZone {
     private Zone zone = new Zone();
 
 
-    public void ActionMenu() {
+    public void actionMenu() {
         System.out.println("1 - Информация о сопернике");
         System.out.println("3 - Информация о персонаже");
         System.out.println("4 - Напасть");
@@ -18,7 +18,7 @@ public class ActionZone {
         System.out.println("0 - Вернуться в город");
     }
     public void battle(Person person, Enemy enemy){
-        ActionMenu();
+        actionMenu();
         int numberMenu = ConsoleUtils.getIntFromConsole();
         switch (numberMenu){
             case 1:

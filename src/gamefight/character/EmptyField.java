@@ -26,7 +26,7 @@ public class EmptyField implements FieldElement {
     }
 
     @Override
-    public String getCharacter() {
+    public String getSymbol() {
         return "*";
     }
 }

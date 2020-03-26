@@ -9,5 +9,5 @@ public interface FieldElement {
 
     Coordinate getCoordinate();
 
-    String getCharacter();
+    String getSymbol();
 }

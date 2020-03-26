@@ -12,7 +12,7 @@ public class ChestField implements FieldElement {
 
     @Override
     public void action(Person person) {
-
+        System.out.println("Вы открыли сундук");
     }
 
     @Override
@@ -26,7 +26,7 @@ public class ChestField implements FieldElement {
     }
 
     @Override
-    public String getCharacter() {
+    public String getSymbol() {
         return "П";
     }
 }

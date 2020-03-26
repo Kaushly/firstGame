@@ -28,11 +28,15 @@ public class PersonField implements FieldElement {
     }
 
     @Override
-    public String getCharacter() {
+    public String getSymbol() {
         return "O";
     }
 
     public void setPerson(Person person) {
         this.person = person;
+    }
+
+    public Person getPerson() {
+        return person;
     }
 }
