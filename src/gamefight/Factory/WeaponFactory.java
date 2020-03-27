@@ -1,5 +1,6 @@
-package gamefight;
+package gamefight.Factory;
 
+import gamefight.DropStrong;
 import gamefight.items.Armor;
 import gamefight.items.Weapon;
 

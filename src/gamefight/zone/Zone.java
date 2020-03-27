@@ -1,9 +1,14 @@
 package gamefight.zone;
 
+import gamefight.character.FieldElement;
+import gamefight.character.FieldType;
 import gamefight.character.Person;
 import gamefight.character.PersonField;
 import gamefight.field.Coordinate;
 import gamefight.field.Field;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Zone {
 

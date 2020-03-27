@@ -17,9 +17,7 @@ public class MainFi {
 
         for (Flyable flyable : flyables) {
             flyable.fly();
+            flyable.live();
         }
-
-
     }
-
 }

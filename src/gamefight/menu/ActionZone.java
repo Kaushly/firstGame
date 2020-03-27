@@ -12,36 +12,37 @@ public class ActionZone {
 
     public void actionMenu() {
         System.out.println("1 - Информация о сопернике");
-        System.out.println("3 - Информация о персонаже");
-        System.out.println("4 - Напасть");
-        System.out.println("5 - Пропустить");
-        System.out.println("0 - Вернуться в город");
+        System.out.println("2 - Информация о персонаже");
+        System.out.println("3 - Напасть");
+        System.out.println("0 - Пропустить бой и вернуться на карту");
     }
     public void battle(Person person, Enemy enemy){
-        actionMenu();
-        int numberMenu = ConsoleUtils.getIntFromConsole();
-        switch (numberMenu){
-            case 1:
-                System.out.println(enemy);
-                break;
-            case 2:
-                System.out.println(person);
-                break;
-            case 3:
-                Person currentEnemy = zone.getFirstEnemy();
-                fight(person, currentEnemy);
-                if (person.isAlive()) {
-                    System.out.println("Вы выжили с hp =  " + person.getHp());
-                } else {
-                    System.out.println("Вы проиграли, возвращаетесь в город");
-                    resetLocateAndCharacter(person);
-                }
-                break;
-            case 4:
-                break;
-            case 5:
-                return;
+        while (true){
+            actionMenu();
+            int numberMenu = ConsoleUtils.getIntFromConsole();
+            switch (numberMenu){
+                case 1:
+                    System.out.println(enemy);
+                    break;
+                case 2:
+                    System.out.println(person);
+                    break;
+                case 3:
+                    Person currentEnemy = zone.getFirstEnemy();
+                    fight(person, currentEnemy);
+                    if (person.isAlive()) {
+                        System.out.println("Вы выжили с hp =  " + person.getHp());
+                        return;
+                    } else {
+                        System.out.println("Вы проиграли, возвращаетесь в город");
+                        resetLocateAndCharacter(person);
+                        return;
+                    }
+                case 0:
+                    return;
+            }
         }
+
 
     }
     private void fight(Person person, Person enemy) {

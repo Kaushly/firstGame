@@ -68,7 +68,7 @@ public class Field {
     public void drawField() {
         for (int j = 0; j < height; j++) {
             for (int i = 0; i < wight; i++) {
-                System.out.print(fieldElements[i][j].getSymbol());
+                System.out.print(fieldElements[i][j].getSymbol() + " ");
             }
             System.out.println();
         }

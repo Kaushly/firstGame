@@ -1,17 +1,15 @@
 package gamefight.menu;
 
-import gamefight.AccessoriesFactory;
-import gamefight.ArmorFactory;
-import gamefight.WeaponFactory;
+import gamefight.Factory.AccessoriesFactory;
+import gamefight.Factory.ArmorFactory;
+import gamefight.Factory.WeaponFactory;
 import gamefight.character.Person;
 import gamefight.items.Accessories;
 import gamefight.items.Armor;
 import gamefight.items.Weapon;
 import gamefight.utils.ConsoleUtils;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 
 public class ShoppingMenu {
     private WeaponFactory weaponFactory = new WeaponFactory();

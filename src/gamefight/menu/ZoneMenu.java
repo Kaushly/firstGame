@@ -1,5 +1,6 @@
 package gamefight.menu;
 
+import gamefight.character.EmptyField;
 import gamefight.character.Person;
 import gamefight.character.PersonField;
 import gamefight.field.Coordinate;
@@ -17,7 +18,6 @@ public class ZoneMenu {
         System.out.println("3 - Вправо");
         System.out.println("4 - Вниз");
         System.out.println("5 - Показать координаты");
-        System.out.println("6 - Напасть на монстра");
         System.out.println("0 - Вернуться в город");
     }
 
@@ -50,16 +50,6 @@ public class ZoneMenu {
                     break;
                 case 5:
                     System.out.println(coordinate);
-                    break;
-                case 6:
-                    Person currentEnemy = zone.getFirstEnemy();
-                    fight(person, currentEnemy);
-                    if (person.isAlive()) {
-                        System.out.println("Вы выжили с hp =  " + person.getHp());
-                    } else {
-                        System.out.println("Вы проиграли, возвращаетесь в город");
-                        resetLocateAndCharacter(person);
-                    }
                     break;
                 case 0:
                     return;

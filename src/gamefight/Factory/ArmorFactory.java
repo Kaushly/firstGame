@@ -1,4 +1,4 @@
-package gamefight;
+package gamefight.Factory;
 
 import gamefight.items.Armor;
 

@@ -1,9 +1,8 @@
-package gamefight;
+package gamefight.Factory;
 
 import gamefight.items.Accessories;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 public class AccessoriesFactory {
     private Map<Integer, Accessories> accessories = new HashMap<>();

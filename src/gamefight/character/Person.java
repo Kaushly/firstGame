@@ -1,9 +1,8 @@
 package gamefight.character;
 
 import gamefight.DropStrong;
-import gamefight.Effect;
-import gamefight.EffectType;
-import gamefight.field.Coordinate;
+import gamefight.Factory.Effect;
+import gamefight.Factory.EffectType;
 import gamefight.items.Accessories;
 import gamefight.items.Armor;
 import gamefight.items.Weapon;

@@ -1,4 +1,4 @@
-package gamefight;
+package gamefight.Factory;
 
 public class Effect {
     private String name;

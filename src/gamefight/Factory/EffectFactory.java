@@ -1,4 +1,4 @@
-package gamefight;
+package gamefight.Factory;
 
 import java.util.HashMap;
 import java.util.Map;

@@ -46,7 +46,6 @@ public class Coordinate {
         prevY = x++;
     }
 
-    // todo: Исправил перемещение героя по карте
     @Override
     public String toString() {
         return "Coordinate{" +

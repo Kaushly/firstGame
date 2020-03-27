@@ -1,4 +1,4 @@
-package gamefight;
+package gamefight.Factory;
 
 public enum EffectType {
     HEALS("здоровье"),
