@@ -10,14 +10,16 @@ public class MainFi {
         List<Flyable> flyables = new ArrayList<>();
 
 
-        flyables.add(new Fly());
-        flyables.add(new Aeroplan());
-        flyables.add(new Table());
+        Fly fly = new Fly();
+        Flyable aeroplan = new Aeroplan();
+        Flyable table = new Table();
 
+        flyables.add(fly);
+        flyables.add(aeroplan);
+        flyables.add(table);
 
         for (Flyable flyable : flyables) {
             flyable.fly();
-            flyable.live();
         }
     }
 }

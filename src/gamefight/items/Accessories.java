@@ -1,6 +1,6 @@
 package gamefight.items;
 
-import gamefight.Factory.Effect;
+import gamefight.factory.Effect;
 
 import java.util.List;
 

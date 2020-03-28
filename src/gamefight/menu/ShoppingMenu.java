@@ -1,8 +1,8 @@
 package gamefight.menu;
 
-import gamefight.Factory.AccessoriesFactory;
-import gamefight.Factory.ArmorFactory;
-import gamefight.Factory.WeaponFactory;
+import gamefight.factory.AccessoriesFactory;
+import gamefight.factory.ArmorFactory;
+import gamefight.factory.WeaponFactory;
 import gamefight.character.Person;
 import gamefight.items.Accessories;
 import gamefight.items.Armor;

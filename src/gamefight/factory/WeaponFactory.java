@@ -1,12 +1,8 @@
-package gamefight.Factory;
+package gamefight.factory;
 
 import gamefight.DropStrong;
-import gamefight.items.Armor;
 import gamefight.items.Weapon;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.HashMap;
 import java.util.LinkedHashSet;
 import java.util.Map;
