@@ -1,6 +1,7 @@
 package gamefight.menu;
 
 import gamefight.character.Person;
+import gamefight.character.PersonField;
 import gamefight.utils.ConsoleUtils;
 import gamefight.zone.Zone;
 
@@ -21,6 +22,9 @@ public class StartMenu {
     }
 
     public void show(Person person) throws IOException {
+
+        zone = new Zone();
+        PersonField personField = zone.initField(person);
         while (true) {
             printMenu();
             int numberMenu = ConsoleUtils.getIntFromConsole();
@@ -29,7 +33,8 @@ public class StartMenu {
                     shopping.showMenu(person);
                     break;
                 case 2:
-                    zoneMenu.show(person);
+
+                    zoneMenu.show(personField,zone);
 // todo выбрать зону
                     break;
                 case 3:

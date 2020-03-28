@@ -10,7 +10,6 @@ import gamefight.zone.Zone;
 
 public class ZoneMenu {
     private ShoppingMenu shopping = new ShoppingMenu();
-    private Zone zone;
 
     private void printMenu() {
         System.out.println("1 - Вверх");
@@ -21,9 +20,7 @@ public class ZoneMenu {
         System.out.println("0 - Вернуться в город");
     }
 
-    public void show(Person person) {
-        zone = new Zone();
-        PersonField personField = zone.initField(person);
+    public void show(PersonField personField, Zone zone) {
 
         Coordinate coordinate = personField.getCoordinate();
         while (true) {

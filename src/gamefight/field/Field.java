@@ -66,11 +66,18 @@ public class Field {
     }
 
     public void drawField() {
+        System.out.print( "  ");
+        for (int i = 0; i < wight; i++) {
+            System.out.print(i + " ");
+        }
+        System.out.println();
         for (int j = 0; j < height; j++) {
+            System.out.print(j  + " ");
             for (int i = 0; i < wight; i++) {
                 System.out.print(fieldElements[i][j].getSymbol() + " ");
             }
             System.out.println();
+
         }
         System.out.println();
     }
@@ -80,15 +87,9 @@ public class Field {
         if (checkBorderZone(coordinate)) {
             System.out.println("Вы перемащаетесь на координаты " + coordinate);
 
-            switch (fieldElements[coordinate.getX()][coordinate.getY()].getType()) {
-                case MONSTER:
-                    fieldElements[coordinate.getX()][coordinate.getY()].action(personField.getPerson());
-                    fieldElements[coordinate.getX()][coordinate.getY()] = new EmptyField(new Coordinate(coordinate.getX(), coordinate.getY()));
-                case EMPTY:
-                    fieldElements[coordinate.getX()][coordinate.getY()] = new PersonField(new Coordinate(coordinate.getX(), coordinate.getY()));
-                case CHEST:
-                    fieldElements[coordinate.getX()][coordinate.getY()].action(personField.getPerson());
-            }
+            fieldElements[coordinate.getX()][coordinate.getY()].action(personField.getPerson());
+            fieldElements[coordinate.getX()][coordinate.getY()] = personField;
+            fieldElements[coordinate.getPrevX()][coordinate.getPrevY()] = new EmptyField(new Coordinate(coordinate.getPrevX(), coordinate.getPrevY()));
         } else {
 
             coordinate.clearCoordinate();

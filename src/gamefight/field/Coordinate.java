@@ -29,21 +29,28 @@ public class Coordinate {
         this.y = y;
     }
 
+    public Integer getPrevX() {
+        return prevX;
+    }
+
+    public Integer getPrevY() {
+        return prevY;
+    }
 
     public void up() {
-        prevX = y--;
+        prevY = y--;
     }
 
     public void down() {
-        prevX = y++;
+        prevY = y++;
     }
 
     public void left() {
-        prevY = x--;
+        prevX = x--;
     }
 
     public void right() {
-        prevY = x++;
+        prevX = x++;
     }
 
     @Override
