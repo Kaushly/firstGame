@@ -38,19 +38,23 @@ public class Coordinate {
     }
 
     public void up() {
+        prevX = x;
         prevY = y--;
     }
 
     public void down() {
+        prevX = x;
         prevY = y++;
     }
 
     public void left() {
         prevX = x--;
+        prevY = y;
     }
 
     public void right() {
         prevX = x++;
+        prevY = y;
     }
 
     @Override
