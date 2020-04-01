@@ -1,8 +1,6 @@
 package gamefight.character;
 
 import gamefight.DropStrong;
-import gamefight.factory.Effect;
-import gamefight.factory.EffectType;
 import gamefight.items.Accessories;
 import gamefight.items.Armor;
 import gamefight.items.Weapon;
@@ -26,32 +24,6 @@ public class Person {
         this.hp = 100;
         this.strong = 20;
         this.attack = 5;
-    }
-
-    public int getFullDamage() {
-        if (weapon == null) {
-            return attack;
-        }
-        return attack + weapon.getDamage();
-    }
-
-    public int getFullArmor() {
-        if (armor == null || armor.getEffect() == null) {
-            return defense;
-        }
-        for (Effect effect : armor.getEffect()) {
-            if (EffectType.DEFFENCE.equals(effect.getType())) {
-                return defense + effect.getValue();
-            }
-        }
-        return defense;
-    }
-
-    public int getFullStrong() {
-        if (dropStrong == null) {
-            return strong;
-        }
-        return strong + dropStrong.getBonusStrong();
     }
 
     @Override
@@ -145,11 +117,11 @@ public class Person {
         return alive;
     }
 
-    public void strike(Person person) {
+    public void strike(Enemy person) {
         person.minusHp(attack);
     }
 
-    private void minusHp(int attack) {
+    public void minusHp(int attack) {
         hp = hp - attack;
         if (hp <= 0) {
             alive = false;

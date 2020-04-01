@@ -13,8 +13,13 @@ import java.util.List;
 public class Zone {
 
     private Person orc = getFirstEnemy();
+    private PersonField personField;
     private Field field = new Field(5, 5, 5, 3);
+    private Coordinate coordinateOnMap;
 
+    public Zone(Coordinate coordinateOnMap) {
+        this.coordinateOnMap = coordinateOnMap;
+    }
 
     public Person getFirstEnemy() {
         Person orc = new Person("Trall");
@@ -35,12 +40,11 @@ public class Zone {
         field.drawField();
     }
 
-    public PersonField initField(Person person) {
-
+    public void initField(Person person) {
         PersonField personField = new PersonField(new Coordinate(field.getWight() / 2, field.getHeight() - 1));
         personField.setPerson(person);
         field.initField(personField);
-        return personField;
+        this.personField = personField;
     }
 
     public Field getField() {
@@ -51,6 +55,13 @@ public class Zone {
     // 7 8 9
 
 
+    public Coordinate getCoordinateOnMap() {
+        return coordinateOnMap;
+    }
+
+    public PersonField getPersonField() {
+        return personField;
+    }
 }
 
 

@@ -2,13 +2,11 @@ package gamefight.menu;
 
 import gamefight.character.Enemy;
 import gamefight.character.Person;
+import gamefight.service.FightService;
 import gamefight.utils.ConsoleUtils;
-import gamefight.zone.Zone;
 
 public class ActionZone {
-
-    private Zone zone = new Zone();
-
+    private FightService fightService = new FightService();
 
     public void actionMenu() {
         System.out.println("1 - Информация о сопернике");
@@ -16,11 +14,12 @@ public class ActionZone {
         System.out.println("3 - Напасть");
         System.out.println("0 - Пропустить бой и вернуться на карту");
     }
-    public void battle(Person person, Enemy enemy){
-        while (true){
+
+    public void battle(Person person, Enemy enemy) {
+        while (true) {
             actionMenu();
             int numberMenu = ConsoleUtils.getIntFromConsole();
-            switch (numberMenu){
+            switch (numberMenu) {
                 case 1:
                     System.out.println(enemy);
                     break;
@@ -28,8 +27,7 @@ public class ActionZone {
                     System.out.println(person);
                     break;
                 case 3:
-                    Person currentEnemy = zone.getFirstEnemy();
-                    fight(person, currentEnemy);
+                    fightService.fight(person, enemy);
                     if (person.isAlive()) {
                         System.out.println("Вы выжили с hp =  " + person.getHp());
                         return;
@@ -43,16 +41,9 @@ public class ActionZone {
             }
         }
 
+    }
 
-    }
-    private void fight(Person person, Person enemy) {
-        while (person.isAlive() && enemy.isAlive()) {
-            person.strike(enemy);
-            enemy.strike(person);
-            System.out.println(person.getName() + " " + person.getHp());
-            System.out.println(enemy.getName() + " " + enemy.getHp());
-        }
-    }
+
     private void resetLocateAndCharacter(Person mixail) {
         mixail.setHp(0);
     }

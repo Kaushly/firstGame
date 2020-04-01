@@ -82,25 +82,7 @@ public class Field {
         System.out.println();
     }
 
-    public void go(PersonField personField) {
-        Coordinate coordinate = personField.getCoordinate();
-        if (checkBorderZone(coordinate)) {
-            System.out.println("Вы перемащаетесь на координаты " + coordinate);
 
-            fieldElements[coordinate.getX()][coordinate.getY()].action(personField.getPerson());
-            fieldElements[coordinate.getX()][coordinate.getY()] = personField;
-            fieldElements[coordinate.getPrevX()][coordinate.getPrevY()] = new EmptyField(new Coordinate(coordinate.getPrevX(), coordinate.getPrevY()));
-        } else {
-
-            coordinate.clearCoordinate();
-            System.out.println("Вы вступили на запретную зону");
-        }
-    }
-
-    private boolean checkBorderZone(Coordinate coordinate) {
-        return coordinate.getX() < wight && coordinate.getY() < height && coordinate.getY() >= 0
-                && coordinate.getX() >= 0;
-    }
 
     public int getWight() {
         return wight;
@@ -109,4 +91,9 @@ public class Field {
     public int getHeight() {
         return height;
     }
+
+    public FieldElement[][] getFieldElements() {
+        return fieldElements;
+    }
+
 }

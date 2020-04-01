@@ -1,15 +1,12 @@
 package gamefight.menu;
 
-import gamefight.character.EmptyField;
-import gamefight.character.Person;
-import gamefight.character.PersonField;
-import gamefight.field.Coordinate;
-import gamefight.field.Field;
+import gamefight.field.WorldMap;
+import gamefight.service.PersonWalkService;
 import gamefight.utils.ConsoleUtils;
-import gamefight.zone.Zone;
 
 public class ZoneMenu {
     private ShoppingMenu shopping = new ShoppingMenu();
+    private PersonWalkService personWalkService;
 
     private void printMenu() {
         System.out.println("1 - Вверх");
@@ -20,50 +17,31 @@ public class ZoneMenu {
         System.out.println("0 - Вернуться в город");
     }
 
-    public void show(PersonField personField, Zone zone) {
-
-        Coordinate coordinate = personField.getCoordinate();
+    public void show(WorldMap worldMap) {
+        personWalkService = new PersonWalkService( worldMap);
         while (true) {
-            zone.drawField();
+            worldMap.getCurrentZone().drawField();
             printMenu();
-            Field field = zone.getField();
             int numberMenu = ConsoleUtils.getIntFromConsole();
             switch (numberMenu) {
                 case 1:
-                    coordinate.up();
-                    field.go(personField);
+                    personWalkService.goUp();
                     break;
                 case 2:
-                    coordinate.left();
-                    field.go(personField);
+                    personWalkService.goLeft();
                     break;
                 case 3:
-                    coordinate.right();
-                    field.go(personField);
+                    personWalkService.goRight();
                     break;
                 case 4:
-                    coordinate.down();
-                    field.go(personField);
+                    personWalkService.goDown();
                     break;
                 case 5:
-                    System.out.println(coordinate);
+                    System.out.println(worldMap.getCurrentZone().getPersonField().getCoordinate());
                     break;
                 case 0:
                     return;
             }
         }
-    }
-
-    private void fight(Person person, Person enemy) {
-        while (person.isAlive() && enemy.isAlive()) {
-            person.strike(enemy);
-            enemy.strike(person);
-            System.out.println(person.getName() + " " + person.getHp());
-            System.out.println(enemy.getName() + " " + enemy.getHp());
-        }
-    }
-
-    private void resetLocateAndCharacter(Person mixail) {
-        mixail.setHp(0);
     }
 }

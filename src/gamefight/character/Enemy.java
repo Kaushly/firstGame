@@ -157,11 +157,11 @@ public class Enemy {
         return alive;
     }
 
-    public void strike(Enemy enemy) {
+    public void strike(Person enemy) {
         enemy.minusHp(attack);
     }
 
-    private void minusHp(int attack) {
+    public void minusHp(int attack) {
         hp = hp - attack;
         if (hp <= 0) {
             alive = false;
