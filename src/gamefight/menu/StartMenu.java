@@ -1,15 +1,17 @@
 package gamefight.menu;
 
+import gamefight.Constants;
 import gamefight.character.Person;
 import gamefight.field.WorldMap;
 import gamefight.utils.ConsoleUtils;
 
 import java.io.IOException;
 
+import static gamefight.Constants.WORLD_MAP;
+
 public class StartMenu {
     private ShoppingMenu shopping = new ShoppingMenu();
     private ZoneMenu zoneMenu = new ZoneMenu();
-    private WorldMap worldMap = new WorldMap(3);
 
     private void printMenu() {
         System.out.println("1 - Зайти в магазин");
@@ -19,7 +21,7 @@ public class StartMenu {
     }
 
     public void show(Person person) throws IOException {
-        worldMap.getCurrentZone().initField(person);
+        WORLD_MAP.getCurrentZone().initField(person);
         while (true) {
             printMenu();
             int numberMenu = ConsoleUtils.getIntFromConsole();
@@ -28,7 +30,7 @@ public class StartMenu {
                     shopping.showMenu(person);
                     break;
                 case 2:
-                    zoneMenu.show(worldMap);
+                    zoneMenu.show();
 // todo выбрать зону
                     break;
                 case 3:

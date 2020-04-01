@@ -4,16 +4,15 @@ import gamefight.character.EmptyField;
 import gamefight.character.FieldElement;
 import gamefight.character.PersonField;
 import gamefight.field.Coordinate;
-import gamefight.field.WorldMap;
+
+import static gamefight.Constants.WORLD_MAP;
 
 public class PersonWalkService {
     private PersonField personField;
-    private WorldMap worldMap;
     private FieldElement[][] fieldElements;
 
-    public PersonWalkService(WorldMap worldMap) {
-        this.personField = worldMap.getCurrentZone().getPersonField();
-        this.worldMap = worldMap;
+    public PersonWalkService() {
+        this.personField = WORLD_MAP.getCurrentZone().getPersonField();
     }
 
     public void goUp() {
@@ -39,7 +38,7 @@ public class PersonWalkService {
 
     public void go(PersonField personField) {
         Coordinate coordinate = personField.getCoordinate();
-        fieldElements = worldMap.getCurrentZone().getField().getFieldElements();
+        fieldElements = WORLD_MAP.getCurrentZone().getField().getFieldElements();
         if (checkBorderZone(coordinate)) {
             System.out.println("Вы перемащаетесь на координаты " + coordinate);
 
@@ -54,7 +53,7 @@ public class PersonWalkService {
     }
 
     private boolean checkBorderZone(Coordinate coordinate) {
-        return coordinate.getX() < worldMap.getCurrentZone().getField().getWight() && coordinate.getY() < worldMap.getCurrentZone().getField().getHeight() && coordinate.getY() >= 0
+        return coordinate.getX() < WORLD_MAP.getCurrentZone().getField().getWight() && coordinate.getY() < WORLD_MAP.getCurrentZone().getField().getHeight() && coordinate.getY() >= 0
                 && coordinate.getX() >= 0;
     }
 }

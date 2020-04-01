@@ -5,6 +5,8 @@ import gamefight.menu.StartMenu;
 
 import java.io.IOException;
 
+import static gamefight.Constants.WORLD_MAP;
+
 public class Game {
 
     private GameConfiguration configuration;

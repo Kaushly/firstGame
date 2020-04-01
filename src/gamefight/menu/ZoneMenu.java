@@ -4,6 +4,8 @@ import gamefight.field.WorldMap;
 import gamefight.service.PersonWalkService;
 import gamefight.utils.ConsoleUtils;
 
+import static gamefight.Constants.WORLD_MAP;
+
 public class ZoneMenu {
     private ShoppingMenu shopping = new ShoppingMenu();
     private PersonWalkService personWalkService;
@@ -17,10 +19,10 @@ public class ZoneMenu {
         System.out.println("0 - Вернуться в город");
     }
 
-    public void show(WorldMap worldMap) {
-        personWalkService = new PersonWalkService( worldMap);
+    public void show() {
+        personWalkService = new PersonWalkService( );
         while (true) {
-            worldMap.getCurrentZone().drawField();
+            WORLD_MAP.getCurrentZone().drawField();
             printMenu();
             int numberMenu = ConsoleUtils.getIntFromConsole();
             switch (numberMenu) {
@@ -37,7 +39,7 @@ public class ZoneMenu {
                     personWalkService.goDown();
                     break;
                 case 5:
-                    System.out.println(worldMap.getCurrentZone().getPersonField().getCoordinate());
+                    System.out.println(WORLD_MAP.getCurrentZone().getPersonField().getCoordinate());
                     break;
                 case 0:
                     return;
