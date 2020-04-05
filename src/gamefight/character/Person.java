@@ -1,11 +1,12 @@
 package gamefight.character;
 
 import gamefight.DropStrong;
+import gamefight.field.Coordinate;
 import gamefight.items.Accessories;
 import gamefight.items.Armor;
 import gamefight.items.Weapon;
 
-public class Person {
+public class Person  implements FieldElement {
 
     private String name;
     private int defense;  // броня
@@ -17,6 +18,7 @@ public class Person {
     private Armor armor;
     private DropStrong dropStrong;
     private boolean alive = true;
+    private Coordinate coordinate;
 
     public Person(String name) {
         this.name = name;
@@ -126,6 +128,29 @@ public class Person {
         if (hp <= 0) {
             alive = false;
         }
+    }
+
+    @Override
+    public void action(Person person) {
+
+    }
+
+    @Override
+    public FieldType getType() {
+        return null;
+    }
+
+    public Coordinate getCoordinate() {
+        return coordinate;
+    }
+
+    @Override
+    public String getSymbol() {
+         return "O";
+    }
+
+    public void setCoordinate(Coordinate coordinate) {
+        this.coordinate = coordinate;
     }
 }
 

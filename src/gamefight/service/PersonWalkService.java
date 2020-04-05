@@ -2,53 +2,26 @@ package gamefight.service;
 
 import gamefight.character.EmptyField;
 import gamefight.character.FieldElement;
-import gamefight.character.PersonField;
+import gamefight.character.Person;
 import gamefight.field.Coordinate;
 
 import static gamefight.Constants.WORLD_MAP;
 
 public class PersonWalkService {
-    private PersonField personField;
     private FieldElement[][] fieldElements;
 
-    public PersonWalkService() {
-        this.personField = WORLD_MAP.getCurrentZone().getPersonField();
-    }
-
-    public void goUp() {
-        personField.getCoordinate().up();
-        go(personField);
-    }
-
-    public void goDown() {
-        personField.getCoordinate().down();
-        go(personField);
-    }
-
-    public void goLeft() {
-        personField.getCoordinate().left();
-        go(personField);
-    }
-
-    public void goRight() {
-        personField.getCoordinate().right();
-        go(personField);
-    }
-
-
-    public void go(PersonField personField) {
-        Coordinate coordinate = personField.getCoordinate();
+    public void go(Person person, Coordinate oldCoordinate)  {
+        Coordinate coordinate = person.getCoordinate();
         fieldElements = WORLD_MAP.getCurrentZone().getField().getFieldElements();
         if (checkBorderZone(coordinate)) {
             System.out.println("Вы перемащаетесь на координаты " + coordinate);
 
-            fieldElements[coordinate.getX()][coordinate.getY()].action(personField.getPerson());
-            fieldElements[coordinate.getX()][coordinate.getY()] = personField;
-            fieldElements[coordinate.getPrevX()][coordinate.getPrevY()] = new EmptyField(new Coordinate(coordinate.getPrevX(), coordinate.getPrevY()));
+            fieldElements[coordinate.getX()][coordinate.getY()].action(person);
+            fieldElements[coordinate.getX()][coordinate.getY()] = person;
+            fieldElements[oldCoordinate.getX()][oldCoordinate.getY()] = new EmptyField(new Coordinate(oldCoordinate.getX(), oldCoordinate.getY()));
         } else {
-
-            coordinate.clearCoordinate();
             System.out.println("Вы вступили на запретную зону");
+            person.setCoordinate(oldCoordinate);
         }
     }
 

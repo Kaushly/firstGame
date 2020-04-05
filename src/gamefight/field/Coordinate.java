@@ -3,14 +3,10 @@ package gamefight.field;
 public class Coordinate {
     private Integer x;
     private Integer y;
-    private Integer prevX;
-    private Integer prevY;
 
     public Coordinate(int x, int y) {
         this.x = x;
         this.y = y;
-        prevY = y;
-        prevX = x;
     }
 
     public Integer getX() {
@@ -29,33 +25,6 @@ public class Coordinate {
         this.y = y;
     }
 
-    public Integer getPrevX() {
-        return prevX;
-    }
-
-    public Integer getPrevY() {
-        return prevY;
-    }
-
-    public void up() {
-        prevX = x;
-        prevY = y--;
-    }
-
-    public void down() {
-        prevX = x;
-        prevY = y++;
-    }
-
-    public void left() {
-        prevX = x--;
-        prevY = y;
-    }
-
-    public void right() {
-        prevX = x++;
-        prevY = y;
-    }
 
     @Override
     public String toString() {
@@ -63,10 +32,5 @@ public class Coordinate {
                 "x=" + x +
                 ", y=" + y +
                 '}';
-    }
-
-    public void clearCoordinate() {
-        x = prevX;
-        y = prevY;
     }
 }

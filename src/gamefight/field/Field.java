@@ -22,14 +22,14 @@ public class Field {
         this.countChest = countChest;
     }
 
-    public void initField(PersonField personField) {
+    public void initField(Person personField) {
         init(wight, height);
         setPerson(personField);
         setEnemy();
         setChest();
     }
 
-    private void setPerson(PersonField personField) {
+    private void setPerson(Person personField) {
         fieldElements[personField.getCoordinate().getX()][personField.getCoordinate().getY()] = personField;
     }
 

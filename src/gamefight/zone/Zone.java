@@ -1,19 +1,13 @@
 package gamefight.zone;
 
-import gamefight.character.FieldElement;
-import gamefight.character.FieldType;
 import gamefight.character.Person;
-import gamefight.character.PersonField;
 import gamefight.field.Coordinate;
 import gamefight.field.Field;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class Zone {
 
     private Person orc = getFirstEnemy();
-    private PersonField personField;
+    private Person person;
     private Field field = new Field(5, 5, 5, 3);
     private Coordinate coordinateOnMap;
 
@@ -41,10 +35,9 @@ public class Zone {
     }
 
     public void initField(Person person) {
-        PersonField personField = new PersonField(new Coordinate(field.getWight() / 2, field.getHeight() - 1));
-        personField.setPerson(person);
-        field.initField(personField);
-        this.personField = personField;
+        person.setCoordinate(new Coordinate(field.getWight() / 2, field.getHeight() - 1));
+        field.initField(person);
+        this.person = person;
     }
 
     public Field getField() {
@@ -59,8 +52,9 @@ public class Zone {
         return coordinateOnMap;
     }
 
-    public PersonField getPersonField() {
-        return personField;
+
+    public Person getPerson() {
+        return person;
     }
 }
 
