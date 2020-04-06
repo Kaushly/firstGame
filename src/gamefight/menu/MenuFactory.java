@@ -11,13 +11,12 @@ import java.util.List;
 
 public class MenuFactory {
 
-    public static List<Command> zoneMenu() {
+    public static List<Command> moveMenu() {
         List<Command> commands = new ArrayList<>();
         commands.add(new MoveDown());
         commands.add(new MoveUp());
         commands.add(new MoveLeft());
         commands.add(new MoveRight());
-        commands.add(new Jump());
         return commands;
     }
 

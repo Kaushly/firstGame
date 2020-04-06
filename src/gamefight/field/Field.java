@@ -22,6 +22,13 @@ public class Field {
         this.countChest = countChest;
     }
 
+    public Field(int wight, int height, int countMonster) {
+        fieldElements = init(wight, height);
+        this.wight = wight;
+        this.height = height;
+        this.countMonster = countMonster;
+    }
+
     public void initField(Person personField) {
         init(wight, height);
         setPerson(personField);
@@ -29,8 +36,24 @@ public class Field {
         setChest();
     }
 
-    private void setPerson(Person personField) {
-        fieldElements[personField.getCoordinate().getX()][personField.getCoordinate().getY()] = personField;
+    public boolean isCloseEnemy(Person person) {
+        Coordinate coordinate = person.getCoordinate();
+        try {
+            if (fieldElements[coordinate.getX() + 1][coordinate.getY()].getType() == FieldType.MONSTER ||
+                    fieldElements[coordinate.getX()][coordinate.getY() + 1].getType() == FieldType.MONSTER ||
+                    fieldElements[coordinate.getX() - 1][coordinate.getY()].getType() == FieldType.MONSTER ||
+                    fieldElements[coordinate.getX()][coordinate.getY() - 1].getType() == FieldType.MONSTER) {
+                return true;
+            }
+        } catch (Exception e) {
+            return false;
+        }
+        return false;
+    }
+
+    private void setPerson(Person person) {
+        person.setCurrentField(this);
+        fieldElements[person.getCoordinate().getX()][person.getCoordinate().getY()] = person;
     }
 
     private void setEnemy() {
@@ -57,8 +80,8 @@ public class Field {
 
     private FieldElement[][] init(int wight, int height) {
         fieldElements = new FieldElement[wight][height];
-        for (int i = 0; i < height; i++) {
-            for (int j = 0; j < wight; j++) {
+        for (int i = 0; i < wight; i++) {
+            for (int j = 0; j < height; j++) {
                 fieldElements[i][j] = new EmptyField(new Coordinate(i, j));
             }
         }
@@ -66,13 +89,13 @@ public class Field {
     }
 
     public void drawField() {
-        System.out.print( "  ");
+        System.out.print("  ");
         for (int i = 0; i < wight; i++) {
             System.out.print(i + " ");
         }
         System.out.println();
         for (int j = 0; j < height; j++) {
-            System.out.print(j  + " ");
+            System.out.print(j + " ");
             for (int i = 0; i < wight; i++) {
                 System.out.print(fieldElements[i][j].getSymbol() + " ");
             }
@@ -81,7 +104,6 @@ public class Field {
         }
         System.out.println();
     }
-
 
 
     public int getWight() {

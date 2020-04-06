@@ -2,6 +2,7 @@ package gamefight.character;
 
 import gamefight.DropStrong;
 import gamefight.field.Coordinate;
+import gamefight.field.Field;
 import gamefight.items.Accessories;
 import gamefight.items.Armor;
 import gamefight.items.Weapon;
@@ -20,6 +21,7 @@ public class Person  implements FieldElement {
     private boolean alive = true;
     private Coordinate coordinate;
     private Enemy currentEnemy;
+    private Field currentField;
 
     public Person(String name) {
         this.name = name;
@@ -160,6 +162,14 @@ public class Person  implements FieldElement {
 
     public void setCurrentEnemy(Enemy currentEnemy) {
         this.currentEnemy = currentEnemy;
+    }
+
+    public Field getCurrentField() {
+        return currentField;
+    }
+
+    public void setCurrentField(Field currentField) {
+        this.currentField = currentField;
     }
 }
 

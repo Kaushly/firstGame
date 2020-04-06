@@ -2,20 +2,24 @@ package gamefight.command;
 
 import gamefight.character.Enemy;
 import gamefight.character.Person;
+import gamefight.field.Coordinate;
 import gamefight.field.Field;
+import gamefight.menu.BattleMenu;
 
 public class Attacking implements Command {
-//    private Field field = new Field();
+    private Field field = new Field(10, 10, 1);
+
+
     @Override
     public void execute(Person person) {
-
-        fight(person, person.getCurrentEnemy());
-        if (person.isAlive()) {
-            System.out.println("Вы выжили с hp =  " + person.getHp());
-        } else {
-            System.out.println("Вы проиграли, возвращаетесь в город");
-            resetLocateAndCharacter(person);
-        }
+        Coordinate areaCoordinate = person.getCoordinate();
+        Field oldField = person.getCurrentField();
+        person.setCoordinate(new Coordinate(field.getWight() - 1, field.getHeight() / 2));
+        this.field.initField(person);
+        field.drawField();
+        new BattleMenu().show(person, field);
+        person.setCurrentField(oldField);
+        person.setCoordinate(areaCoordinate);
     }
 
     private void resetLocateAndCharacter(Person mixail) {
