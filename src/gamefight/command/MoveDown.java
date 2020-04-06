@@ -14,4 +14,9 @@ public class MoveDown implements Command {
         coordinate.setY(coordinate.getY() + 1);
         service.go(person, oldCoordinate);
     }
+
+    @Override
+    public String name() {
+        return "Вниз";
+    }
 }

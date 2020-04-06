@@ -15,4 +15,9 @@ public class MoveRight implements Command {
         service.go(person, oldCoordinate);
 
     }
+
+    @Override
+    public String name() {
+        return "Вправо";
+    }
 }

@@ -14,4 +14,9 @@ public class MoveLeft implements Command {
         coordinate.setX(coordinate.getX() - 1);
         service.go(person, oldCoordinate);
     }
+
+    @Override
+    public String name() {
+        return "Влево";
+    }
 }

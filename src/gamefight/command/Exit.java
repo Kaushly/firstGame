@@ -8,4 +8,9 @@ public class Exit implements Command {
         System.out.println("Вы ушли");
 
     }
+
+    @Override
+    public String name() {
+        return "Выход";
+    }
 }

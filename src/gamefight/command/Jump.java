@@ -2,14 +2,14 @@ package gamefight.command;
 
 import gamefight.character.Person;
 
-public class NullCommand implements Command {
+public class Jump implements Command {
     @Override
     public void execute(Person person) {
-        System.out.println("Такой команды нет");
+        System.out.println("Прыгнул со скалы");
     }
 
     @Override
     public String name() {
-        return "Попробуйте еще";
+        return "Прыжок";
     }
 }

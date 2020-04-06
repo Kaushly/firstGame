@@ -1,8 +1,6 @@
 package gamefight.menu;
 
-import gamefight.Constants;
 import gamefight.character.Person;
-import gamefight.field.WorldMap;
 import gamefight.utils.ConsoleUtils;
 
 import java.io.IOException;
@@ -11,7 +9,8 @@ import static gamefight.Constants.WORLD_MAP;
 
 public class StartMenu {
     private ShoppingMenu shopping = new ShoppingMenu();
-    private ZoneMenu zoneMenu = new ZoneMenu();
+    private ZoneMenu zoneMenu = MenuFactory.zoneMenu();
+
 
     private void printMenu() {
         System.out.println("1 - Зайти в магазин");
