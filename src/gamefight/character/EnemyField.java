@@ -16,7 +16,8 @@ public class EnemyField implements FieldElement {
 
     @Override
     public void action(Person person) {
-        actionZone.battle(person, enemy);
+        person.setCurrentEnemy(enemy);
+        actionZone.battle(person);
     }
 
     @Override

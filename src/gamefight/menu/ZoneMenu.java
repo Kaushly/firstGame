@@ -9,12 +9,8 @@ import java.util.List;
 import static gamefight.Constants.WORLD_MAP;
 
 public class ZoneMenu implements DefaultMenu {
-    private List<Command> commandList;
+    private List<Command> commandList = MenuFactory.zoneMenu();
     private ShoppingMenu shopping = new ShoppingMenu();
-
-    public ZoneMenu(List<Command> commandList) {
-        this.commandList = commandList;
-    }
 
     public void show() {
 

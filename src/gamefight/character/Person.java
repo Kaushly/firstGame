@@ -19,6 +19,7 @@ public class Person  implements FieldElement {
     private DropStrong dropStrong;
     private boolean alive = true;
     private Coordinate coordinate;
+    private Enemy currentEnemy;
 
     public Person(String name) {
         this.name = name;
@@ -151,6 +152,14 @@ public class Person  implements FieldElement {
 
     public void setCoordinate(Coordinate coordinate) {
         this.coordinate = coordinate;
+    }
+
+    public Enemy getCurrentEnemy() {
+        return currentEnemy;
+    }
+
+    public void setCurrentEnemy(Enemy currentEnemy) {
+        this.currentEnemy = currentEnemy;
     }
 }
 

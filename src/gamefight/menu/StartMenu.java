@@ -9,7 +9,7 @@ import static gamefight.Constants.WORLD_MAP;
 
 public class StartMenu {
     private ShoppingMenu shopping = new ShoppingMenu();
-    private ZoneMenu zoneMenu = MenuFactory.zoneMenu();
+    private ZoneMenu zoneMenu = new ZoneMenu();
 
 
     private void printMenu() {
