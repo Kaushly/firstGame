@@ -1,8 +1,10 @@
 package gamefight.character;
 
+import gamefight.character.monster.Monster;
+
 public class Tower {
     private int level = 1;
-    private Person currentEnemy;
+    public Monster currentMonster;
 
     public int getLevel() {
         return level;
@@ -12,11 +14,11 @@ public class Tower {
         this.level = level;
     }
 
-    public Person getCurrentEnemy() {
-        return currentEnemy;
+    public Monster getCurrentMonster() {
+        return currentMonster;
     }
 
-    public void setCurrentEnemy(Person currentEnemy) {
-        this.currentEnemy = currentEnemy;
+    public void setCurrentMonster(Monster currentMonster) {
+        this.currentMonster = currentMonster;
     }
 }

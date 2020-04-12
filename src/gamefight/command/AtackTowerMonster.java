@@ -2,6 +2,7 @@ package gamefight.command;
 
 import gamefight.character.Drop;
 import gamefight.character.Person;
+import gamefight.character.monster.Monster;
 import gamefight.service.FightService;
 
 public class AtackTowerMonster implements Command {
@@ -9,13 +10,13 @@ public class AtackTowerMonster implements Command {
 
     @Override
     public void execute(Person person) {
-        Person currentEnemy = person.getTower().getCurrentEnemy();
-        if (currentEnemy == null) {
+        Monster currentMonster = person.getTower().getCurrentMonster();
+        if (currentMonster == null) {
             System.out.println("Тут пусто и нет монстра");
         } else {
-            Drop drop = fightService.fight(person, currentEnemy);
+            Drop drop = fightService.fight(person, currentMonster);
             person.setCoin(person.getCoin() + drop.getCoin());
-            person.getTower().setCurrentEnemy(null);
+            person.getTower().setCurrentMonster(null);
             System.out.println("Из монстра выпало" + drop);
         }
     }

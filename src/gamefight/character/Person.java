@@ -1,6 +1,7 @@
 package gamefight.character;
 
 import gamefight.DropStrong;
+import gamefight.character.monster.Monster;
 import gamefight.field.Coordinate;
 import gamefight.field.Field;
 import gamefight.items.Accessories;
@@ -130,6 +131,10 @@ public class Person implements FieldElement {
 
     public void strike(Enemy person) {
         person.minusHp(attack);
+    }
+
+    public void strike(Monster monster) {
+        monster.minusHp(attack);
     }
 
     public void strike(Person person) {

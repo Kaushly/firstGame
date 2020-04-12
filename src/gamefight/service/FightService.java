@@ -3,6 +3,7 @@ package gamefight.service;
 import gamefight.character.Drop;
 import gamefight.character.Enemy;
 import gamefight.character.Person;
+import gamefight.character.monster.Monster;
 
 public class FightService {
 
@@ -15,12 +16,12 @@ public class FightService {
         }
     }
 
-    public Drop fight(Person person, Person enemy) {
-        while (person.isAlive() && enemy.isAlive()) {
+    public Drop fight(Person person, Monster monster) {
+        while (person.isAlive() && monster.isAlive()) {
             try {
-                person.strike(enemy);
+                person.strike(monster);
                 Thread.sleep(200);
-                enemy.strike(person);
+                monster.strike(person);
                 Thread.sleep(500);
 
             } catch (InterruptedException e) {
@@ -28,7 +29,7 @@ public class FightService {
 
             }
             System.out.println(person.getName() + " " + person.getHp());
-            System.out.println(enemy.getName() + " " + enemy.getHp());
+            System.out.println(monster.getTypeMonster() + " " + monster.getHp());
 
         }
         return new Drop((long) (Math.random() * 10));
