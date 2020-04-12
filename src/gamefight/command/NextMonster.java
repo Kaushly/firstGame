@@ -1,15 +1,17 @@
 package gamefight.command;
 
 import gamefight.character.Person;
-import gamefight.character.monster.spawn.DemonSpawner;
-import gamefight.character.monster.spawn.FactorySpawner;
-import gamefight.character.monster.spawn.GhostSpawner;
-import gamefight.character.monster.spawn.OrkSpawner;
+import gamefight.character.monster.spawn.*;
 
 import java.util.Arrays;
 
 public class NextMonster implements Command {
-    private FactorySpawner factorySpawner = new FactorySpawner(Arrays.asList(new DemonSpawner(), new GhostSpawner(), new OrkSpawner()));
+    private FactorySpawner factorySpawner = new FactorySpawner(Arrays.asList(
+            new DemonSpawner(),
+            new GhostSpawner(),
+            new OrkSpawner(),
+            new GoblinSpawner()
+    ));
 
     @Override
     public void execute(Person person) {
