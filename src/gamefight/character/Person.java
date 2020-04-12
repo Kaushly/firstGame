@@ -7,11 +7,12 @@ import gamefight.items.Accessories;
 import gamefight.items.Armor;
 import gamefight.items.Weapon;
 
-public class Person  implements FieldElement {
+public class Person implements FieldElement {
 
     private String name;
     private int defense;  // броня
     private int hp;
+    private int fullHp;
     private int strong;
     private int attack;
     private Weapon weapon;
@@ -22,18 +23,23 @@ public class Person  implements FieldElement {
     private Coordinate coordinate;
     private Enemy currentEnemy;
     private Field currentField;
+    private Tower tower;
+    private BackBack backBack;
+    private long coin;
+    private int level;
 
     public Person(String name) {
         this.name = name;
         this.defense = 15;
         this.hp = 100;
+        this.fullHp = hp;
         this.strong = 20;
-        this.attack = 5;
+        this.attack = 40;
     }
 
     @Override
     public String toString() {
-        return  name +
+        return name +
                 ", defense=" + defense +
                 ", hp=" + hp +
                 ", strong=" + strong +
@@ -126,6 +132,10 @@ public class Person  implements FieldElement {
         person.minusHp(attack);
     }
 
+    public void strike(Person person) {
+        person.minusHp(attack);
+    }
+
     public void minusHp(int attack) {
         hp = hp - attack;
         if (hp <= 0) {
@@ -149,7 +159,7 @@ public class Person  implements FieldElement {
 
     @Override
     public String getSymbol() {
-         return "O";
+        return "O";
     }
 
     public void setCoordinate(Coordinate coordinate) {
@@ -170,6 +180,50 @@ public class Person  implements FieldElement {
 
     public void setCurrentField(Field currentField) {
         this.currentField = currentField;
+    }
+
+    public Tower getTower() {
+        return tower;
+    }
+
+    public void setTower(Tower tower) {
+        this.tower = tower;
+    }
+
+    public int getFullHp() {
+        return fullHp;
+    }
+
+    public void setFullHp(int fullHp) {
+        this.fullHp = fullHp;
+    }
+
+    public BackBack getBackBack() {
+        return backBack;
+    }
+
+    public void setBackBack(BackBack backBack) {
+        this.backBack = backBack;
+    }
+
+    public void setAlive(boolean alive) {
+        this.alive = alive;
+    }
+
+    public long getCoin() {
+        return coin;
+    }
+
+    public void setCoin(long coin) {
+        this.coin = coin;
+    }
+
+    public int getLevel() {
+        return level;
+    }
+
+    public void setLevel(int level) {
+        this.level = level;
     }
 }
 

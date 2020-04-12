@@ -4,6 +4,7 @@ import gamefight.character.Person;
 import gamefight.command.Command;
 import gamefight.command.Hit;
 import gamefight.field.Field;
+import gamefight.service.FieldService;
 import gamefight.utils.ConsoleUtils;
 
 import java.util.List;
@@ -12,11 +13,12 @@ import static gamefight.Constants.WORLD_MAP;
 
 public class BattleMenu implements DefaultMenu {
     private List<Command> commandList = MenuFactory.moveMenu();
+    private FieldService fieldService = new FieldService();
 
     public void show(Person person, Field field) {
 
         while (true) {
-            if (field.isCloseEnemy(person)) {
+            if (fieldService.isCloseEnemy(person)) {
                 commandList.add(new Hit());
             } else {
                 commandList.removeIf(p -> p instanceof Hit);
@@ -31,6 +33,7 @@ public class BattleMenu implements DefaultMenu {
                 return;
             }
             command.execute(person);
+
         }
     }
 

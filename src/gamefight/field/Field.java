@@ -36,19 +36,14 @@ public class Field {
         setChest();
     }
 
-    public boolean isCloseEnemy(Person person) {
-        Coordinate coordinate = person.getCoordinate();
-        try {
-            if (fieldElements[coordinate.getX() + 1][coordinate.getY()].getType() == FieldType.MONSTER ||
-                    fieldElements[coordinate.getX()][coordinate.getY() + 1].getType() == FieldType.MONSTER ||
-                    fieldElements[coordinate.getX() - 1][coordinate.getY()].getType() == FieldType.MONSTER ||
-                    fieldElements[coordinate.getX()][coordinate.getY() - 1].getType() == FieldType.MONSTER) {
-                return true;
+    private FieldElement[][] init(int wight, int height) {
+        fieldElements = new FieldElement[wight][height];
+        for (int i = 0; i < wight; i++) {
+            for (int j = 0; j < height; j++) {
+                fieldElements[i][j] = new EmptyField(new Coordinate(i, j));
             }
-        } catch (Exception e) {
-            return false;
         }
-        return false;
+        return fieldElements;
     }
 
     private void setPerson(Person person) {
@@ -76,16 +71,6 @@ public class Field {
                 fieldElements[coordinate.getX()][coordinate.getY()] = new ChestField(coordinate);
             }
         }
-    }
-
-    private FieldElement[][] init(int wight, int height) {
-        fieldElements = new FieldElement[wight][height];
-        for (int i = 0; i < wight; i++) {
-            for (int j = 0; j < height; j++) {
-                fieldElements[i][j] = new EmptyField(new Coordinate(i, j));
-            }
-        }
-        return fieldElements;
     }
 
     public void drawField() {

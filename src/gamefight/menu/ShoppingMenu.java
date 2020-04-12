@@ -16,7 +16,7 @@ public class ShoppingMenu {
     private ArmorFactory armorFactory = new ArmorFactory();
     private AccessoriesFactory accessoriesFactory = new AccessoriesFactory();
 
-    public void showMenu(Person person) throws IOException {
+    public void showMenu(Person person) {
         while (true) {
             printShopMenu();
             switch (ConsoleUtils.getIntFromConsole()) {
@@ -56,7 +56,7 @@ public class ShoppingMenu {
                 System.out.println(number++ + " " + allAccessorie);
             }
             System.out.print("Выбери предмет:  ");
-            return accessoriesFactory.getAccessoriesByNumber(ConsoleUtils.getIntFromConsole()+ 1);
+            return accessoriesFactory.getAccessoriesByNumber(ConsoleUtils.getIntFromConsole() + 1);
 
         }
     }
@@ -71,6 +71,7 @@ public class ShoppingMenu {
             return armorFactory.getArmorByNumber(ConsoleUtils.getIntFromConsole() + 1);
         }
     }
+
     private Weapon showAllWeapons() {
         while (true) {
             int number = 1;
