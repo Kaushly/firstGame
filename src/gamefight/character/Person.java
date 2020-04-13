@@ -28,14 +28,18 @@ public class Person implements FieldElement {
     private BackBack backBack;
     private long coin;
     private int level;
+    private int xp;
+    private int persLevel;
 
     public Person(String name) {
         this.name = name;
         this.defense = 15;
-        this.hp = 100;
+        this.hp = 300;
         this.fullHp = hp;
         this.strong = 20;
         this.attack = 40;
+        this.persLevel = 0;
+        this.xp = 0;
     }
 
     @Override
@@ -49,7 +53,8 @@ public class Person implements FieldElement {
                 ", accessories=" + accessories +
                 ", armor=" + armor +
                 ", dropStrong=" + dropStrong +
-                ", alive=" + alive;
+                ", alive=" + alive +
+                ", уровень: " + persLevel;
     }
 
 
@@ -229,6 +234,22 @@ public class Person implements FieldElement {
 
     public void setLevel(int level) {
         this.level = level;
+    }
+
+    public int getXp() {
+        return xp;
+    }
+
+    public void setXp(int xp) {
+        this.xp = xp;
+    }
+
+    public int getPersLevel() {
+        return persLevel;
+    }
+
+    public void setPersLevel(int persLevel) {
+        this.persLevel = persLevel;
     }
 }
 

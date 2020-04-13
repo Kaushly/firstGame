@@ -23,7 +23,7 @@ public class Game {
 
     private Person getFirstPerson() {
         Person maxail = new Person("Mixail");
-        maxail.setHp(300);
+//        maxail.setHp(300);
         return maxail;
     }
 }

@@ -46,6 +46,7 @@ public class MenuFactory {
         commands.add(new NextMonster());
         commands.add(new AtackTowerMonster());
         commands.add(new AmounCoin());
+        commands.add(new Experince());
         return commands;
     }
 }

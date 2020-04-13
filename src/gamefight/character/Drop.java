@@ -2,9 +2,12 @@ package gamefight.character;
 
 public class Drop {
     private long coin;
+    private int xp;
 
-    public Drop(long coin) {
+
+    public Drop(long coin, int xp) {
         this.coin = coin;
+        this.xp = xp;
     }
 
     public long getCoin() {
@@ -15,10 +18,19 @@ public class Drop {
         this.coin = coin;
     }
 
+    public int getXp() {
+        return xp;
+    }
+
+    public void setXp(int xp) {
+        this.xp = xp;
+    }
+
     @Override
     public String toString() {
         return "Drop{" +
                 "coin=" + coin +
+                ", xp=" + xp +
                 '}';
     }
 }
