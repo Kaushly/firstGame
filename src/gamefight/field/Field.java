@@ -29,9 +29,9 @@ public class Field {
         this.countMonster = countMonster;
     }
 
-    public void initField(Person personField) {
+    public void initField(Person person) {
         init(wight, height);
-        setPerson(personField);
+        setPerson(person);
         setEnemy();
         setChest();
     }

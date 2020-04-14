@@ -20,41 +20,33 @@ public class Person implements FieldElement {
     private Accessories accessories;
     private Armor armor;
     private DropStrong dropStrong;
-    private boolean alive = true;
     private Coordinate coordinate;
     private Enemy currentEnemy;
     private Field currentField;
     private Tower tower;
     private BackBack backBack;
     private long coin;
+    private int experience;
     private int level;
-    private int xp;
-    private int persLevel;
 
     public Person(String name) {
         this.name = name;
         this.defense = 15;
-        this.hp = 300;
+        this.hp = 30;
         this.fullHp = hp;
         this.strong = 20;
         this.attack = 40;
-        this.persLevel = 0;
-        this.xp = 0;
+        this.level = 1;
+        this.experience = 0;
     }
 
     @Override
     public String toString() {
         return name +
-                ", defense=" + defense +
-                ", hp=" + hp +
-                ", strong=" + strong +
-                ", attack=" + attack +
-                ", weapon=" + weapon +
-                ", accessories=" + accessories +
-                ", armor=" + armor +
-                ", dropStrong=" + dropStrong +
-                ", alive=" + alive +
-                ", уровень: " + persLevel;
+                ", hp=(" + hp + "/" + fullHp +
+                "), attack=" + attack +
+                ", уровень: " + level +
+                ", опыт: " + experience;
     }
 
 
@@ -131,7 +123,7 @@ public class Person implements FieldElement {
     }
 
     public boolean isAlive() {
-        return alive;
+        return hp > 0;
     }
 
     public void strike(Enemy person) {
@@ -148,9 +140,6 @@ public class Person implements FieldElement {
 
     public void minusHp(int attack) {
         hp = hp - attack;
-        if (hp <= 0) {
-            alive = false;
-        }
     }
 
     @Override
@@ -216,10 +205,6 @@ public class Person implements FieldElement {
         this.backBack = backBack;
     }
 
-    public void setAlive(boolean alive) {
-        this.alive = alive;
-    }
-
     public long getCoin() {
         return coin;
     }
@@ -228,28 +213,20 @@ public class Person implements FieldElement {
         this.coin = coin;
     }
 
+    public int getExperience() {
+        return experience;
+    }
+
+    public void setExperience(int experience) {
+        this.experience = experience;
+    }
+
     public int getLevel() {
         return level;
     }
 
     public void setLevel(int level) {
         this.level = level;
-    }
-
-    public int getXp() {
-        return xp;
-    }
-
-    public void setXp(int xp) {
-        this.xp = xp;
-    }
-
-    public int getPersLevel() {
-        return persLevel;
-    }
-
-    public void setPersLevel(int persLevel) {
-        this.persLevel = persLevel;
     }
 }
 
