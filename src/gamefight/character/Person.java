@@ -32,23 +32,13 @@ public class Person implements FieldElement {
     public Person(String name) {
         this.name = name;
         this.defense = 15;
-        this.hp = 30;
+        this.hp = 301;
         this.fullHp = hp;
         this.strong = 20;
         this.attack = 40;
         this.level = 1;
         this.experience = 0;
     }
-
-    @Override
-    public String toString() {
-        return name +
-                ", hp=(" + hp + "/" + fullHp +
-                "), attack=" + attack +
-                ", уровень: " + level +
-                ", опыт: " + experience;
-    }
-
 
     public String getName() {
         return name;
@@ -227,6 +217,30 @@ public class Person implements FieldElement {
 
     public void setLevel(int level) {
         this.level = level;
+    }
+
+    @Override
+    public String toString() {
+        return "Person{" +
+                "name='" + name + '\'' +
+                ", defense=" + defense +
+                ", hp=" + hp +
+                ", fullHp=" + fullHp +
+                ", strong=" + strong +
+                ", attack=" + attack +
+                ", weapon=" + weapon +
+                ", accessories=" + accessories +
+                ", armor=" + armor +
+                ", dropStrong=" + dropStrong +
+                ", coordinate=" + coordinate +
+                ", currentEnemy=" + currentEnemy +
+                ", currentField=" + currentField +
+                ", tower=" + tower +
+                ", backBack=" + backBack +
+                ", coin=" + coin +
+                ", experience=" + experience +
+                ", level=" + level +
+                '}';
     }
 }
 

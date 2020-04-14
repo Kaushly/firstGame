@@ -6,10 +6,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 
-public class LevelUp {
+public class LevelUpService {
     private Map<Integer, Integer> levels = new HashMap<>();
 
-    public LevelUp() {
+    public LevelUpService() {
         levels.put(1, 100);
         levels.put(2, 150);
         levels.put(3, 200);
@@ -28,12 +28,16 @@ public class LevelUp {
             person.setExperience(person.getExperience() - levels.get(person.getLevel()));
             person.setAttack(person.getAttack() + (5 * person.getLevel()));
             person.setHp(person.getFullHp() + (10 * person.getLevel()));
+            person.setFullHp(person.getHp());
             person.setDefense(person.getDefense() + (4 * person.getLevel()));
             person.setCoin(person.getCoin() + (10 * person.getLevel()));
             person.setLevel(person.getLevel() + 1);
 
             System.out.println("Уровень персонажа повышен до " + person.getLevel());
         }
+    }
 
+    public Integer getLevels(int level){
+        return levels.get(level);
     }
 }

@@ -4,10 +4,12 @@ import gamefight.character.Drop;
 import gamefight.character.Person;
 import gamefight.character.monster.Monster;
 import gamefight.service.FightService;
+import gamefight.service.ShowPersonService;
 
 public class AtackTowerMonster implements Command {
-    FightService fightService = new FightService();
-    LevelUp levelUp = new LevelUp();
+    private FightService fightService = new FightService();
+    private LevelUpService levelUpService = new LevelUpService();
+    private ShowPersonService showPersonService = new ShowPersonService();
 
     @Override
     public void execute(Person person) {
@@ -19,9 +21,14 @@ public class AtackTowerMonster implements Command {
             person.setCoin(person.getCoin() + drop.getCoin());
             person.setExperience(person.getExperience() + drop.getExperience());
             person.getTower().setCurrentMonster(null);
+            System.out.println("-------------------------------------");
             System.out.println("Из монстра выпало: " + drop.getCoin() + " монеты");
             System.out.println("Вы заработали: " + drop.getExperience() + " опыта");
-            levelUp.nextLevel(person);
+            showPersonService.execute(person);
+            System.out.println("-------------------------------------");
+            if (person.getLevel() < 10) {
+                levelUpService.nextLevel(person);
+            }
         }
     }
 
