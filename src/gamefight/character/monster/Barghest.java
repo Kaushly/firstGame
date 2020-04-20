@@ -2,19 +2,19 @@ package gamefight.character.monster;
 
 import java.util.Random;
 
-public class Demon extends Monster {
+public class Barghest extends Monster {
 
-    public Demon() {
+    public Barghest() {
         super(new Random().nextInt(50) + 50, new Random().nextInt(3) + 7, new Random().nextInt(10) + 5);
     }
 
     @Override
     public Monster clone() {
-        return new Demon();
+        return new Barghest();
     }
 
     @Override
     public TypeMonster getTypeMonster() {
-        return TypeMonster.DEMON;
+        return TypeMonster.BARGHEST;
     }
 }

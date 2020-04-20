@@ -6,10 +6,12 @@ import gamefight.character.Person;
 public abstract class Monster {
     private int hp;
     private int attack;
+    private int exp;
 
-    Monster(int hp, int attack) {
+    Monster(int hp, int attack, int exp) {
         this.hp = hp;
         this.attack = attack;
+        this.exp = exp;
     }
 
     public boolean isAlive() {
@@ -34,6 +36,14 @@ public abstract class Monster {
 
     public void setAttack(int attack) {
         this.attack = attack;
+    }
+
+    public int getExp() {
+        return exp;
+    }
+
+    public void setExp(int exp) {
+        this.exp = exp;
     }
 
     public void strike(Enemy person) {

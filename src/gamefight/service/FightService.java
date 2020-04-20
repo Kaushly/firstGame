@@ -32,6 +32,6 @@ public class FightService {
             System.out.println(monster.getTypeMonster() + " " + monster.getHp());
 
         }
-        return new Drop((long) (Math.random() * 10), (int) (Math.random() * 10 + 10));
+        return new Drop((long) (Math.random() * 10), monster.getExp());
     }
 }

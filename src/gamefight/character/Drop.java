@@ -30,7 +30,7 @@ public class Drop {
     public String toString() {
         return "Drop{" +
                 "coin=" + coin +
-                ", xp=" + experience +
+                ", exp=" + experience +
                 '}';
     }
 }

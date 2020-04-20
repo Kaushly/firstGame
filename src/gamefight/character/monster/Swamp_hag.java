@@ -2,19 +2,19 @@ package gamefight.character.monster;
 
 import java.util.Random;
 
-public class Ork extends Monster {
+public class Swamp_hag extends Monster {
 
-    public Ork() {
+    public Swamp_hag() {
         super((int) (Math.random() * 10) + 30, new Random().nextInt(10) + 7, new Random().nextInt(10) + 5);
     }
 
     @Override
     public Monster clone() {
-        return new Ork();
+        return new Swamp_hag();
     }
 
     @Override
     public TypeMonster getTypeMonster() {
-        return TypeMonster.ORK;
+        return TypeMonster.SWAMP_HAG;
     }
 }
