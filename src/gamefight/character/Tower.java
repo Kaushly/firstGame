@@ -1,17 +1,36 @@
 package gamefight.character;
 
 import gamefight.character.monster.Monster;
+import gamefight.character.monster.spawn.*;
+
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
 
 public class Tower {
-    private int level = 1;
-    public Monster currentMonster;
+    private int floor;
+    private int maxFloor = 99;
+    private Monster currentMonster;
 
-    public int getLevel() {
-        return level;
+    private HashMap<Integer, List<Spawner>> currentSpawner = new HashMap<>();
+
+    public Tower() {
+        this.floor = 1;
+        currentSpawner.put(1, Arrays.asList(new DemonSpawner(), new OrkSpawner()));
+        currentSpawner.put(2, Arrays.asList(new SalamandraSpawner(), new OgrSpawner()));
+        currentSpawner.put(3, Arrays.asList(new SnakemanSpawner(), new WolfSpawner()));
     }
 
-    public void setLevel(int level) {
-        this.level = level;
+    public int getFloor() {
+        return floor;
+    }
+
+    public void upLevel() {
+        floor++;
+    }
+
+    public List<Spawner> getCurrentSpawner() {
+        return currentSpawner.get(floor);
     }
 
     public Monster getCurrentMonster() {
@@ -20,5 +39,11 @@ public class Tower {
 
     public void setCurrentMonster(Monster currentMonster) {
         this.currentMonster = currentMonster;
+    }
+
+    public void spawnRandomMonster() {
+        if (getCurrentSpawner() != null) {
+            currentMonster = getCurrentSpawner().get(((int) (Math.random() * getCurrentSpawner().size()))).spawnMonster();
+        }
     }
 }

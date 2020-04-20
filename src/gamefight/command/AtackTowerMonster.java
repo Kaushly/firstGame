@@ -30,6 +30,11 @@ public class AtackTowerMonster implements Command {
                 levelUpService.nextLevel(person);
             }
         }
+
+        if (Math.random() * 10 > 5) {
+            System.out.println("ПОДНЯЛИ УРОВЕНЬ БАШНИ");
+            person.getTower().upLevel();
+        }
     }
 
     @Override
