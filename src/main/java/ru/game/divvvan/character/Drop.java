@@ -1,5 +1,8 @@
 package ru.game.divvvan.character;
 
+import lombok.Data;
+
+@Data
 public class Drop {
     private long coin;
     private int experience;
@@ -7,22 +10,6 @@ public class Drop {
 
     public Drop(long coin, int experience) {
         this.coin = coin;
-        this.experience = experience;
-    }
-
-    public long getCoin() {
-        return coin;
-    }
-
-    public void setCoin(long coin) {
-        this.coin = coin;
-    }
-
-    public int getExperience() {
-        return experience;
-    }
-
-    public void setExperience(int experience) {
         this.experience = experience;
     }
 

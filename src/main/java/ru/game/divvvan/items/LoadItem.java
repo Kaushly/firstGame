@@ -1,5 +1,8 @@
 package ru.game.divvvan.items;
 
+import lombok.Data;
+
+@Data
 public class LoadItem {
     private Weapon left;
     private Weapon right;

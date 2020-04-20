@@ -1,5 +1,6 @@
 package ru.game.divvvan.character;
 
+import lombok.Data;
 import ru.game.divvvan.DropStrong;
 import ru.game.divvvan.factory.Effect;
 import ru.game.divvvan.factory.EffectType;
@@ -8,6 +9,7 @@ import ru.game.divvvan.items.Accessories;
 import ru.game.divvvan.items.Armor;
 import ru.game.divvvan.items.Weapon;
 
+@Data
 public class Enemy {
 
     private String name;
@@ -70,91 +72,6 @@ public class Enemy {
                 ", dropStrong=" + dropStrong +
                 ", alive=" + alive +
                 '}';
-    }
-
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public int getDefense() {
-        return defense;
-    }
-
-    public void setDefense(int defense) {
-        this.defense = defense;
-    }
-
-    public int getHp() {
-        return hp;
-    }
-
-    public void setHp(int hp) {
-        this.hp = hp;
-    }
-
-    public int getStrong() {
-        return strong;
-    }
-
-    public void setStrong(int strong) {
-        this.strong = strong;
-    }
-
-    public int getAttack() {
-        return attack;
-    }
-
-    public void setAttack(int attack) {
-        this.attack = attack;
-    }
-
-    public Weapon getWeapon() {
-        return weapon;
-    }
-
-    public void setWeapon(Weapon weapon) {
-        this.weapon = weapon;
-    }
-
-    public Accessories getAccessories() {
-        return accessories;
-    }
-
-    public void setAccessories(Accessories accessories) {
-        this.accessories = accessories;
-    }
-
-    public Armor getArmor() {
-        return armor;
-    }
-
-    public void setArmor(Armor armor) {
-        this.armor = armor;
-    }
-
-    public DropStrong getDropStrong() {
-        return dropStrong;
-    }
-
-    public void setDropStrong(DropStrong dropStrong) {
-        this.dropStrong = dropStrong;
-    }
-
-    public Coordinate getCoordinate() {
-        return coordinate;
-    }
-
-    public void setCoordinate(Coordinate coordinate) {
-        this.coordinate = coordinate;
-    }
-
-    public boolean isAlive() {
-        return alive;
     }
 
     public void strike(Person enemy) {

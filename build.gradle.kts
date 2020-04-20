@@ -1,8 +1,9 @@
 repositories {
-    jcenter()
+    mavenCentral()
 }
+
 plugins {
-//    id("org.springframework.boot") version "2.2.1.RELEASE"
+    //    id("org.springframework.boot") version "2.2.1.RELEASE"
 //    id("io.spring.dependency-management") version "1.0.8.RELEASE"
     id("java")
 }
@@ -11,20 +12,25 @@ group = "ru.game.divvvan"
 version = "0.0.1-SNAPSHOT"
 
 dependencies {
+    implementation("org.hibernate:hibernate-core:3.6.7.Final")
+    testImplementation("junit:junit:4.+")
+
+//====Logbook============================================================
+    compileOnly("org.projectlombok:lombok:1.18.12")
+    annotationProcessor("org.projectlombok:lombok:1.18.12")
+
+    testCompileOnly("org.projectlombok:lombok:1.18.12")
+    testAnnotationProcessor("org.projectlombok:lombok:1.18.12")
+//=====================BD===========================================
+    implementation("org.liquibase:liquibase-gradle-plugin:2.0.2")
+    implementation("com.vladmihalcea:hibernate-types-52:2.7.1")
+    runtimeOnly("org.postgresql:postgresql:42.1.4")
 //    implementation("org.springframework.boot:spring-boot-starter-web")
 //    implementation("org.springframework.boot:spring-boot-starter-data-jpa")
 //    implementation("org.apache.commons:commons-text:1.8")
-//    implementation("tech.seven.system:api-error-spring-handler:1.0.0-SNAPSHOT")
-//    implementation("tech.seven.system:api-error-feign:1.0.0-SNAPSHOT")
 //    implementation("com.opencsv:opencsv:5.0")
 //    implementation("org.springframework.boot:spring-boot-starter-actuator")
-//
-//    implementation("org.liquibase:liquibase-core")
-//    implementation("com.vladmihalcea:hibernate-types-52:2.7.1")
-//    runtimeOnly("org.postgresql:postgresql")
-//
-//    compileOnly("org.projectlombok:lombok")
-//    annotationProcessor("org.projectlombok:lombok")
+
 
     //====Logbook============================================================
 //    implementation("org.zalando:logbook-spring-boot-starter:2.1.0")
