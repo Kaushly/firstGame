@@ -1,7 +1,7 @@
 package gamefight.character.monster.spawn;
 
 import gamefight.character.monster.Monster;
-import gamefight.character.monster.Troglodyte;
+import gamefight.character.monster.bestiaria.Troglodyte;
 
 public class TroglodyteSpawner implements Spawner {
 

@@ -8,7 +8,7 @@ public abstract class Monster {
     private int attack;
     private int exp;
 
-    Monster(int hp, int attack, int exp) {
+    public Monster(int hp, int attack, int exp) {
         this.hp = hp;
         this.attack = attack;
         this.exp = exp;

@@ -1,6 +1,6 @@
 package gamefight.character.monster.spawn;
 
-import gamefight.character.monster.Doppelganger;
+import gamefight.character.monster.bestiaria.Doppelganger;
 import gamefight.character.monster.Monster;
 
 public class DoppelgangerSpawner implements Spawner {

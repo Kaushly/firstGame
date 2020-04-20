@@ -1,6 +1,6 @@
 package gamefight.character.monster.spawn;
 
-import gamefight.character.monster.Hellhound;
+import gamefight.character.monster.bestiaria.Hellhound;
 import gamefight.character.monster.Monster;
 
 public class HellhoundSpawner  implements Spawner{

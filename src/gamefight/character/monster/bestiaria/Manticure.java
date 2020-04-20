@@ -1,4 +1,7 @@
-package gamefight.character.monster;
+package gamefight.character.monster.bestiaria;
+
+import gamefight.character.monster.Monster;
+import gamefight.character.monster.TypeMonster;
 
 import java.util.Random;
 

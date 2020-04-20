@@ -1,11 +1,16 @@
-package gamefight.character.monster;
+package gamefight.character.monster.bestiaria;
+
+import gamefight.character.monster.Monster;
+import gamefight.character.monster.TypeMonster;
 
 import java.util.Random;
 
 public class Boggard extends Monster {
 
     public Boggard() {
-        super(new Random().nextInt(50) + 50, new Random().nextInt(3) + 7, new Random().nextInt(10) + 5);
+        super(new Random().nextInt(50) + 50,
+                new Random().nextInt(3) + 7,
+                new Random().nextInt(10) + 5);
     }
 
     @Override

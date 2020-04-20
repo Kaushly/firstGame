@@ -1,7 +1,7 @@
 package gamefight.character.monster.spawn;
 
 import gamefight.character.monster.Monster;
-import gamefight.character.monster.Ogr;
+import gamefight.character.monster.bestiaria.Ogr;
 
 public class OgrSpawner implements Spawner {
 

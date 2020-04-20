@@ -1,7 +1,7 @@
 package gamefight.character.monster.spawn;
 
 import gamefight.character.monster.Monster;
-import gamefight.character.monster.Wolf;
+import gamefight.character.monster.bestiaria.Wolf;
 
 public class WolfSpawner implements Spawner {
 

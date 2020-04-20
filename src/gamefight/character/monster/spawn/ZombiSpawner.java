@@ -1,7 +1,7 @@
 package gamefight.character.monster.spawn;
 
 import gamefight.character.monster.Monster;
-import gamefight.character.monster.Zombi;
+import gamefight.character.monster.bestiaria.Zombi;
 
 public class ZombiSpawner implements Spawner {
 

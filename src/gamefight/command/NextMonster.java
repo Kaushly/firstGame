@@ -6,12 +6,7 @@ import gamefight.character.monster.spawn.*;
 import java.util.Arrays;
 
 public class NextMonster implements Command {
-    private FactorySpawner factorySpawner = new FactorySpawner(Arrays.asList(
-            new DemonSpawner(),
-            new GhostSpawner(),
-            new OrkSpawner(),
-            new GoblinSpawner()
-    ));
+    private FactorySpawner factorySpawner = new FactorySpawner();
 
     @Override
     public void execute(Person person) {

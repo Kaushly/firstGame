@@ -1,7 +1,7 @@
 package gamefight.character.monster.spawn;
 
 import gamefight.character.monster.Monster;
-import gamefight.character.monster.Skeleton;
+import gamefight.character.monster.bestiaria.Skeleton;
 
 public class SkaletonSpawner implements Spawner {
 
