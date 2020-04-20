@@ -1,12 +1,10 @@
 package ru.game.divvvan.character;
 
-import ru.game.divvvan.DropStrong;
 import ru.game.divvvan.character.monster.Monster;
 import ru.game.divvvan.field.Coordinate;
 import ru.game.divvvan.field.Field;
-import ru.game.divvvan.items.Accessories;
-import ru.game.divvvan.items.Armor;
-import ru.game.divvvan.items.Weapon;
+import ru.game.divvvan.items.LoadItem;
+import ru.game.divvvan.items.RealItem;
 
 public class Person implements FieldElement {
 
@@ -16,15 +14,12 @@ public class Person implements FieldElement {
     private int fullHp;
     private int strong;
     private int attack;
-    private Weapon weapon;
-    private Accessories accessories;
-    private Armor armor;
-    private DropStrong dropStrong;
     private Coordinate coordinate;
     private Enemy currentEnemy;
     private Field currentField;
     private Tower tower;
-    private BackBack backBack;
+    private BackPack backPack;
+    private LoadItem loadItem;
     private long coin;
     private int experience;
     private int level;
@@ -32,12 +27,14 @@ public class Person implements FieldElement {
     public Person(String name) {
         this.name = name;
         this.defense = 15;
-        this.hp = 301;
+        this.hp = 100;
         this.fullHp = hp;
         this.strong = 20;
         this.attack = 40;
         this.level = 1;
         this.experience = 0;
+        backPack = new BackPack();
+        loadItem = new LoadItem();
     }
 
     public String getName() {
@@ -80,40 +77,20 @@ public class Person implements FieldElement {
         this.attack = attack;
     }
 
-    public Weapon getWeapon() {
-        return weapon;
-    }
-
-    public void setWeapon(Weapon weapon) {
-        this.weapon = weapon;
-    }
-
-    public Accessories getAccessories() {
-        return accessories;
-    }
-
-    public void setAccessories(Accessories accessories) {
-        this.accessories = accessories;
-    }
-
-    public Armor getArmor() {
-        return armor;
-    }
-
-    public void setArmor(Armor armor) {
-        this.armor = armor;
-    }
-
-    public DropStrong getDropStrong() {
-        return dropStrong;
-    }
-
-    public void setDropStrong(DropStrong dropStrong) {
-        this.dropStrong = dropStrong;
-    }
-
     public boolean isAlive() {
         return hp > 0;
+    }
+
+    public void take(RealItem realItem){
+        backPack.addItem(realItem);
+    }
+
+    public LoadItem getLoadItem() {
+        return loadItem;
+    }
+
+    public void setLoadItem(LoadItem loadItem) {
+        this.loadItem = loadItem;
     }
 
     public void strike(Enemy person) {
@@ -187,12 +164,12 @@ public class Person implements FieldElement {
         this.fullHp = fullHp;
     }
 
-    public BackBack getBackBack() {
-        return backBack;
+    public BackPack getBackPack() {
+        return backPack;
     }
 
-    public void setBackBack(BackBack backBack) {
-        this.backBack = backBack;
+    public void setBackPack(BackPack backPack) {
+        this.backPack = backPack;
     }
 
     public long getCoin() {
@@ -228,15 +205,10 @@ public class Person implements FieldElement {
                 ", fullHp=" + fullHp +
                 ", strong=" + strong +
                 ", attack=" + attack +
-                ", weapon=" + weapon +
-                ", accessories=" + accessories +
-                ", armor=" + armor +
-                ", dropStrong=" + dropStrong +
                 ", coordinate=" + coordinate +
                 ", currentEnemy=" + currentEnemy +
                 ", currentField=" + currentField +
-                ", tower=" + tower +
-                ", backBack=" + backBack +
+                ", backBack=" + backPack +
                 ", coin=" + coin +
                 ", experience=" + experience +
                 ", level=" + level +

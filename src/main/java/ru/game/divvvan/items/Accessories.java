@@ -4,10 +4,10 @@ import ru.game.divvvan.factory.Effect;
 
 import java.util.List;
 
-public class Accessories {
-//fn+shift+f6
+public class Accessories implements RealItem {
+    //fn+shift+f6
     private String name;
-//    private double weight;
+    //    private double weight;
 //    private int bonusHP;
     private List<Effect> effect;
 
@@ -15,8 +15,7 @@ public class Accessories {
 //    private int bonusArmorr;
 
 
-
-    public Accessories(String name, List<Effect> effect){
+    public Accessories(String name, List<Effect> effect) {
         this.name = name;
 //        this.weight = weight;
         this.effect = effect;
@@ -25,6 +24,16 @@ public class Accessories {
 
     public String getName() {
         return name;
+    }
+
+    @Override
+    public int getWeight() {
+        return 0;
+    }
+
+    @Override
+    public ItemType getType() {
+        return ItemType.ACCESSORY;
     }
 
     public void setName(String name) {

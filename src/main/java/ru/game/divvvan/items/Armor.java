@@ -4,7 +4,9 @@ import ru.game.divvvan.factory.Effect;
 
 import java.util.List;
 
-public class Armor {
+import static ru.game.divvvan.items.ItemType.ARMOR;
+
+public class Armor implements RealItem {
 
     private String name;
     private int weight;
@@ -26,6 +28,11 @@ public class Armor {
 
     public int getWeight() {
         return weight;
+    }
+
+    @Override
+    public ItemType getType() {
+        return ARMOR;
     }
 
     public void setWeight(int weight) {

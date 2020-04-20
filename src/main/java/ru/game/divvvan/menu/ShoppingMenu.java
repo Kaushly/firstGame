@@ -20,18 +20,18 @@ public class ShoppingMenu {
             switch (ConsoleUtils.getIntFromConsole()) {
                 case 1:
                     Armor armor = showAllArmor();
-                    person.setArmor(armor);
-                    System.out.println(person.getName() + " надел " + armor.getName());
+                    person.take(armor);
+                    System.out.println(person.getName() + " положил в сумку " + armor.getName());
                     break;
                 case 2:
                     Weapon weapon = showAllWeapons();
-                    person.setWeapon(weapon);
-                    System.out.println(person.getName() + " надел " + weapon.getName());
+                    person.take(weapon);
+                    System.out.println(person.getName() + " положил в сумку " + weapon.getName());
                     break;
                 case 3:
                     Accessories accessories = showAllAcessories();
-                    person.setAccessories(accessories);
-                    System.out.println(person.getName() + " надел " + accessories.getName());
+                    person.take(accessories);
+                    System.out.println(person.getName() + " положил в сумку " + accessories.getName());
                     break;
                 case 0:
                     return;
