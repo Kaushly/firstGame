@@ -32,7 +32,7 @@ public class Person implements FieldElement {
         this.hp = 100;
         this.fullHp = hp;
         this.strong = 20;
-        this.attack = 40;
+        this.attack = 10;
         this.level = 1;
         this.experience = 0;
         backPack = new BackPack();

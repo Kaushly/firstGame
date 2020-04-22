@@ -1,7 +1,7 @@
 package ru.game.divvvan.character.monster.spawn;
 
 import ru.game.divvvan.character.monster.Monster;
-import ru.game.divvvan.character.monster.bestiaria.Salamandra;
+import ru.game.divvvan.character.monster.bestiaria.floor5.Salamandra;
 
 public class SalamandraSpawner implements Spawner {
 

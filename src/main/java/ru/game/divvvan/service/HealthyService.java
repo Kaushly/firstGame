@@ -15,6 +15,7 @@ public class HealthyService {
             Thread.sleep(3000);
             person.setHp(person.getFullHp());
             System.out.println("Вы восстановили здоровье");
+
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

@@ -1,23 +1,23 @@
-package ru.game.divvvan.character.monster.bestiaria;
+package ru.game.divvvan.character.monster.bestiaria.floor8;
 
 import ru.game.divvvan.character.monster.Monster;
 import ru.game.divvvan.character.monster.TypeMonster;
 
 import java.util.Random;
 
-public class Dragon extends Monster {
+public class Manticure extends Monster {
 
-    public Dragon() {
+    public Manticure() {
         super((int) (Math.random() * 50) + 10, new Random().nextInt(3) + 3,new Random().nextInt(10) + 5);
     }
 
     @Override
     public Monster clone() {
-        return new Dragon();
+        return new Manticure();
     }
 
     @Override
     public TypeMonster getTypeMonster() {
-        return TypeMonster.DRAGON;
+        return TypeMonster.MANTICURE;
     }
 }

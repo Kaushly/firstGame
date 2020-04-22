@@ -1,4 +1,4 @@
-package ru.game.divvvan.character.monster.bestiaria;
+package ru.game.divvvan.character.monster.bestiaria.floor9;
 
 import ru.game.divvvan.character.monster.Monster;
 import ru.game.divvvan.character.monster.TypeMonster;

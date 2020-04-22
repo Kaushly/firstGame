@@ -1,4 +1,4 @@
-package ru.game.divvvan.character.monster.bestiaria;
+package ru.game.divvvan.character.monster.bestiaria.floor2;
 
 import ru.game.divvvan.character.monster.Monster;
 import ru.game.divvvan.character.monster.TypeMonster;
@@ -8,7 +8,7 @@ import java.util.Random;
 public class Wolf extends Monster {
 
     public Wolf() {
-        super((int) (Math.random() * 10) + 30, new Random().nextInt(10) + 7, new Random().nextInt(10) + 5);
+        super((int) (Math.random() * 20) + 40, new Random().nextInt(15) + 7, new Random().nextInt(10) + 10);
     }
 
     @Override

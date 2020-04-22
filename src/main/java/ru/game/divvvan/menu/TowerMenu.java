@@ -26,10 +26,14 @@ public class TowerMenu implements DefaultMenu {
 
             Command command = getCommand(ConsoleUtils.getIntFromConsole());
             if (command == EXIT) {
+                person.getTower().setFloor(1);
+                person.getTower().setKillMonster(0);
                 return;
             }
             command.execute(person);
             if (!person.isAlive()) {
+                person.getTower().setFloor(1);
+                person.getTower().setKillMonster(0);
                 System.out.println("Вы умерли и возвращаетесь в замок");
                 return;
             }

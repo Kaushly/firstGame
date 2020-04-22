@@ -1,7 +1,7 @@
 package ru.game.divvvan.character.monster.spawn;
 
 import ru.game.divvvan.character.monster.Monster;
-import ru.game.divvvan.character.monster.bestiaria.Swamp_hag;
+import ru.game.divvvan.character.monster.bestiaria.floor6.Swamp_hag;
 
 public class Swamp_hagSpawner implements Spawner {
 
