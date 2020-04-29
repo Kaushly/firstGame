@@ -17,12 +17,6 @@ public class BackPack {
         itemsList.add(realItem);
     }
 
-    @Override
-    public String toString() {
-        return "BackPack{" +
-                "size=" + size +
-                ", weight=" + weight +
-                ", itemsList=" + itemsList +
-                '}';
-    }
+
+
 }

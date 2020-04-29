@@ -4,7 +4,6 @@ public class DropStrong {
     private String DropName;
     private int weight;
     private int bonusStrong;
-//    private int bonusArmorr;
 
     public DropStrong(String DropName, int weight, int bonusStrong){
         this.DropName = DropName;

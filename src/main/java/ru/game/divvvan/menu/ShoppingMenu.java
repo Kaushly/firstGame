@@ -1,5 +1,6 @@
 package ru.game.divvvan.menu;
 
+import ru.game.divvvan.character.BackPack;
 import ru.game.divvvan.factory.AccessoriesFactory;
 import ru.game.divvvan.factory.ArmorFactory;
 import ru.game.divvvan.factory.WeaponFactory;
@@ -20,18 +21,40 @@ public class ShoppingMenu {
             switch (ConsoleUtils.getIntFromConsole()) {
                 case 1:
                     Armor armor = showAllArmor();
-                    person.take(armor);
-                    System.out.println(person.getName() + " положил в сумку " + armor.getName());
+                    if(person.getCoin() >= armor.getPrice()){
+                        person.take(armor);
+                        person.setCoin(person.getCoin() - armor.getPrice());
+                        System.out.println(person.getName() + " положил в сумку " + armor.getName());
+                        System.out.println("Осталось " + person.getCoin() + " монет");
+                    }else {
+                        long i = armor.getPrice() - person.getCoin();
+                        System.out.println("Вам не хватает " + i + " монет для покупки " + armor.getName());
+                    }
                     break;
                 case 2:
                     Weapon weapon = showAllWeapons();
-                    person.take(weapon);
-                    System.out.println(person.getName() + " положил в сумку " + weapon.getName());
+                    if(person.getCoin() >= weapon.getPrice()){
+                        person.take(weapon);
+                        person.setCoin(person.getCoin() - weapon.getPrice());
+                        System.out.println(person.getName() + " положил в сумку " + weapon.getName());
+                        System.out.println("Осталось " + person.getCoin() + " монет");
+                    }else {
+                        long i = weapon.getPrice() - person.getCoin();
+                        System.out.println("Вам не хватает " + i + " монет для покупки " + weapon.getName());
+                    }
                     break;
                 case 3:
                     Accessories accessories = showAllAcessories();
-                    person.take(accessories);
-                    System.out.println(person.getName() + " положил в сумку " + accessories.getName());
+                    if(person.getCoin() >= accessories.getPrice()){
+                        person.take(accessories);
+                        person.setCoin(person.getCoin() - accessories.getPrice());
+                        System.out.println(person.getName() + " положил в сумку " + accessories.getName());
+                        person.getBackPack().addItem(accessories);
+                        System.out.println("Осталось " + person.getCoin() + " монет");
+                    }else {
+                        long i = accessories.getPrice() - person.getCoin();
+                        System.out.println("Вам не хватает " + i + " монет для покупки " + accessories.getName());
+                    }
                     break;
                 case 0:
                     return;
@@ -53,7 +76,6 @@ public class ShoppingMenu {
             for (String allAccessorie : accessoriesFactory.getAllAccessories()) {
                 System.out.println(number++ + " " + allAccessorie);
             }
-            System.out.print("Выбери предмет:  ");
             return accessoriesFactory.getAccessoriesByNumber(ConsoleUtils.getIntFromConsole() + 1);
 
         }
@@ -63,9 +85,8 @@ public class ShoppingMenu {
         while (true) {
             int number = 1;
             for (String allArmor : armorFactory.getAllArmors()) {
-                System.out.println(number++ + " " + allArmor);
+                System.out.println(number++ + " " + allArmor + " (стоимость &&&)");
             }
-            System.out.print("Выбери предмет: ");
             return armorFactory.getArmorByNumber(ConsoleUtils.getIntFromConsole() + 1);
         }
     }
@@ -76,7 +97,6 @@ public class ShoppingMenu {
             for (String allWeapons : weaponFactory.getAllWeapons()) {
                 System.out.println(number++ + " " + allWeapons);
             }
-            System.out.print("Выбери предмет: ");
             return weaponFactory.getWeaponByNumber(ConsoleUtils.getIntFromConsole() + 1);
         }
     }

@@ -10,18 +10,17 @@ public class ArmorFactory {
 
     public ArmorFactory() {
         armors.put(1, new Armor("Накидка простая", 2,
-                Collections.singletonList(effectFactory.createEffect("здоровье", 5))));
+                Collections.singletonList(effectFactory.createEffect("здоровье", 5)), 8));
         armors.put(2, new Armor("Накидка бесполезная", 2,
-                Collections.singletonList(effectFactory.createEffect("здоровье", 1))));
+                Collections.singletonList(effectFactory.createEffect("здоровье", 1)), 999));
 
         armors.put(3, new Armor("Плащ", 2,
-                Collections.singletonList(effectFactory.createEffect("броня", 20))));
+                Collections.singletonList(effectFactory.createEffect("броня", 20)),999));
         armors.put(4, new Armor("Кольчуга", 10,
-                Collections.singletonList(effectFactory.createEffect("здоровье", 20))));
-        armors.put(5, new Armor("Железный доспех", 20, getArmorHp()));
-//todo options+comma+m
+                Collections.singletonList(effectFactory.createEffect("здоровье", 20)), 999));
+        armors.put(5, new Armor("Железный доспех", 20, getArmorHp(),999));
 
-        armors.put(6, new Armor("Шлем веселый", 12, getEffectsForHelmet()));
+        armors.put(6, new Armor("Шлем веселый", 12, getEffectsForHelmet(), 999));
     }
 
     private ArrayList<Effect> getEffectsForHelmet() {

@@ -10,7 +10,6 @@ public class RunGame {
         GameConfiguration gameConfiguration = new GameConfiguration();
         Game game = new Game(gameConfiguration);
         game.start();
-        Ring ring = new Ring();
     }
 // TODO: 14.04.2020
 // Зачем идти в башню

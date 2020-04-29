@@ -7,4 +7,8 @@ public interface RealItem {
 
     ItemType getType();
 
+    long getPrice();
+
+
+
 }

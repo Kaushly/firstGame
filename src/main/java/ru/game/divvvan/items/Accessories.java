@@ -1,25 +1,19 @@
 package ru.game.divvvan.items;
 
+import lombok.Data;
 import ru.game.divvvan.factory.Effect;
 
 import java.util.List;
-
+@Data
 public class Accessories implements RealItem {
-    //fn+shift+f6
     private String name;
-    //    private double weight;
-//    private int bonusHP;
     private List<Effect> effect;
+    private long price;
 
-//    private int bonusStrong;
-//    private int bonusArmorr;
-
-
-    public Accessories(String name, List<Effect> effect) {
+    public Accessories(String name, List<Effect> effect, long price) {
         this.name = name;
-//        this.weight = weight;
         this.effect = effect;
-//        this.bonusHP = bonusHP;
+        this.price = price;
     }
 
     public String getName() {
@@ -48,21 +42,6 @@ public class Accessories implements RealItem {
         this.effect = effect;
     }
 
-//    public int getBonusHP() {
-//        return bonusHP;
-//    }
-
-//    public void setBonusHP(int bonusHP) {
-//        this.bonusHP = bonusHP;
-//    }
-
-//    public double getWeight() {
-//        return weight;
-//    }
-
-//    public void setWeight(double weight) {
-//        this.weight = weight;
-//    }
 
     @Override
     public String toString() {

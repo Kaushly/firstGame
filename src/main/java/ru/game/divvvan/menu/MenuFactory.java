@@ -1,5 +1,6 @@
 package ru.game.divvvan.menu;
 
+import ru.game.divvvan.command.menu.ShowBackPackMenu;
 import ru.game.divvvan.command.menu.ShowShoppingMenu;
 import ru.game.divvvan.command.menu.ShowTowerMenu;
 import ru.game.divvvan.command.menu.ShowZoneMenu;
@@ -37,6 +38,7 @@ public class MenuFactory {
         commands.add(new ShowShoppingMenu());
         commands.add(new ShowZoneMenu());
         commands.add(new ShowTowerMenu());
+        commands.add(new ShowBackPackMenu());
         return commands;
     }
 
@@ -47,6 +49,13 @@ public class MenuFactory {
         commands.add(new AtackTowerMonster());
         commands.add(new AmounCoin());
         commands.add(new Experince());
+        return commands;
+    }
+
+    public static List<Command> PackMenu(){
+        List<Command> commands = new ArrayList<>();
+        commands.add(new PutOn());
+        commands.add(new ToSell());
         return commands;
     }
 }

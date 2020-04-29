@@ -10,15 +10,15 @@ public class AccessoriesFactory {
 
     public AccessoriesFactory() {
         accessories.put(1, new Accessories("Золотое кольцо",
-                Collections.singletonList(effectFactory.createEffect("здоровье", 7))));
+                Collections.singletonList(effectFactory.createEffect("здоровье", 7)),999));
         accessories.put(2, new Accessories("Серебрянный перстень",
-                Collections.singletonList(effectFactory.createEffect("здоровье", 2))));
+                Collections.singletonList(effectFactory.createEffect("здоровье", 2)),999));
         accessories.put(3, new Accessories("Простое кольцо",
-                Collections.singletonList(effectFactory.createEffect("броня", 5))));
+                Collections.singletonList(effectFactory.createEffect("броня", 5)),999));
         accessories.put(4, new Accessories("Ожерелье",
-                Collections.singletonList(effectFactory.createEffect("здоровье", 20))));
-        accessories.put(5, new Accessories("Талисман", getArmorHp()));
-        accessories.put(6, new Accessories("Волшебная диадема", getEffectsForHelmet()));
+                Collections.singletonList(effectFactory.createEffect("здоровье", 20)),999));
+        accessories.put(5, new Accessories("Талисман", getArmorHp(),999));
+        accessories.put(6, new Accessories("Волшебная диадема", getEffectsForHelmet(),999));
     }
 
     private ArrayList<Effect> getEffectsForHelmet() {
@@ -41,15 +41,9 @@ public class AccessoriesFactory {
         return accessories.get(accessoriesNumber - 1);
     }
 
-//    public Set<String> getAllAccessories() {
-//        return accessories.values()
-//                .stream()
-//                .map(Accessories::getName)
-//                .collect(Collectors.toSet());
-//    }
 
     public Set<String> getAllAccessories() {
-        LinkedHashSet<String > set = new LinkedHashSet<>();
+        LinkedHashSet<String> set = new LinkedHashSet<>();
         for (Accessories value : accessories.values()) {
             set.add(value.getName());
         }
